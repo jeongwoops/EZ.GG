@@ -1,0 +1,42 @@
+#notice{
+    color: red;
+    margin-bottom: 100px;
+    margin: auto;
+    
+   }
+   .notice-area{
+    width: 100%;
+    display: flex;
+    text-align: center;
+    color: red;
+    justify-content: space-evenly;
+  
+   }
+   
+   #tb-notice{
+    color: black;
+    width: 600px;
+    background-color: rgb(199, 248, 255);
+   
+    font-size: 18px;
+    
+    }
+    
+    #tb-championUser{
+        background-color: rgb(121, 102, 231);
+        color:white;
+        width: 600px;
+        font-size: 18px;
+        
+    }
+    #championUser{
+        float: right;
+        text-align: center;
+       
+      
+    }
+    .board{
+        margin: 10px auto;
+        width: 100%;
+       
+    }

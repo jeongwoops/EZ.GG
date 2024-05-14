@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="noticeMapper">
+  	
+  	<resultMap id="noticeResultSet" type="com.kh.ez.notice.model.vo.Notice">
+  			<result column="NOTICE_NO" property="noticeNo" />
+  			<result column="NOTICE_TITLE" property="noticeTitle" />
+  			<result column="NOTICE_CONTENT" property="noticeContent" />
+  			<result column="WRITER" property="writer" />
+  			<result column="WRITE_DATE" property="writeDate" />
+  			<result column="NOTICE_COUNT" property="noticeCount" />
+  	</resultMap>
+  	
+  	<insert id="createNotice" >
+  		insert into notice(NOTICE_NO,WRITER,WRITE_DATE,NOTICE_TITLE,NOTICE_CONTENT)
+  				values(SEQ_NNO.NEXTVAL,#{writer},#{writeDate},#{noticeTitle},#{noticeContent})
+  	</insert>
+  	
+  	<!-- <select id="readNotice" resultMap ="noticeResultSet">
+  			SELECT NOTICE_NO,WRITER,WRITE_DATE,NOTICE_TITLE,NOTICE_CONTENT
+  				FROM NOTICE 
+  				WHERE NOTICE_NO=#{noticeNo} 
+  		</select>
+  		 -->
+  	<update id="increaseCount" >
+		  update notice 
+                set notice_count = notice_count+1
+                where notice_no=#{noticeNo}
+			
+	</update>
+	<select id="readNotice" resultMap="noticeResultSet">
+		SELECT NOTICE_NO,WRITER,WRITE_DATE,NOTICE_TITLE,NOTICE_CONTENT
+  				FROM NOTICE 
+  				
+				ORDER BY NOTICE_NO DESC 
+	</select>
+  </mapper>

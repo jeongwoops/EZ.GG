@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="static/css/login.css"/>
+
+    <style>
+    
+    </style>
+</head>
+<body>
+<div th:include="views/header"></div>
+<div th:include="views/banner"></div>
+
+    <div id="signIn-area">
+	    <div id="inpt-login">
+	    	<form action="signIn" method="post">
+		        <a>ID</a> &nbsp; <input type="text" class="input-login" name="userId"/><br>
+		        
+		        <a>PW</a> <input type="password" class="input-login"  name="userPw"/>
+		
+		        <button type="submit" id="btn-login">로그인</button><br><br>
+		
+		        <h3><a href="">| 회원가입 |</a></h3>
+	        </form>
+    </div>
+  </div>
+    <div th:include="views/footer"></div>
+</body>
+</html>

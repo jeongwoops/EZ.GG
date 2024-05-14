@@ -1,0 +1,45 @@
+     #signIn-area{
+            display: flex;
+            justify-content: center;
+            margin-top: 280px;
+            min-height: 450px;
+        }
+       
+        .input-login{
+            display: inline-flex;
+            justify-content: center;
+            width: 300px;
+            height: 35px;
+            margin: 10px;
+            margin-top: 30px;
+            margin-left: 40px;
+            font-size: 18px;
+            text-align: center;
+            border-radius: 10px;
+            border-color: rgb(51, 252, 185);
+        }
+ 
+        #btn-login{
+            width: 60px;
+            height: 35px;
+            color: white;
+            font-weight: 800;
+            background-color: rgb(55, 55, 255);
+            border-color: rgb(17, 0, 255);
+            border-radius: 3px 15px 15px 3px;
+           
+        }
+        #btn-login:hover {
+            background-color: white;
+            color: black;
+            
+        }
+        a{
+            font-weight: 700;
+            color: gray  ;
+            text-align: center; 
+            text-decoration: none;
+        }
+        h3 {
+            text-align: center;
+        }

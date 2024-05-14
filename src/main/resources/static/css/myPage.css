@@ -1,0 +1,110 @@
+hr {
+  background:rgb(23, 196, 248);
+  height:1px;
+  border:0;
+}
+header {
+  text-align: center;
+  margin: 0 auto ;
+  font-weight: 800;
+  font-size: 22px;
+}
+
+#btn-topmenu{
+  text-align: right;
+}
+ #inp-searchId {
+    
+    margin: 10px;
+    margin-top: 20px;
+    width: 400px;
+    height: 30px;
+    border-radius: 10px;
+    padding-left: 7px;
+    letter-spacing: 1px;
+    color: black;
+  }
+  #inp-searchTag {
+    width: 50px;
+    height: 30px;
+    border-radius: 7px;
+    letter-spacing: 1px;
+    
+  }
+  .notice-area{
+    display: center;
+    background-color: rgb(199, 248, 255);
+    width:800px;
+    
+    margin: 0 auto;
+  }
+
+  .board-area{
+    background-color: rgb(230, 230, 230);
+    width:800px;
+    height: 500px;
+    margin: 0 auto;
+  }
+
+  .content{
+    width: 800px;
+    margin: 0 auto;
+  }
+
+  #wrapper{
+    height: auto;
+    min-height: 100%;
+    padding-bottom: (footer높이);
+  
+  }
+  footer{
+    height: (footer높이);
+    position : relative;
+    transform : translateY(-100%);
+    
+  }
+ #notice {
+    margin:0 auto;
+}
+#tb-notice{
+  width: 800px;
+}
+#notice h2{
+  text-align: center;
+  font-size: 30px;
+  
+}
+ #notice {
+    margin:0 auto;
+}
+#create-area{
+    display: flex;
+}
+#create-area h3{
+  text-align: center;
+}
+
+#create-team{
+  margin: 100px;
+}
+#create-tb tr{
+ font-size: 30px;
+ height: 70px; 
+}
+#forecast{
+  margin: 100px;
+}
+.game-container{
+  margin: 100px;
+  text-align: center;
+
+}
+.game-container input{
+  width:60px;
+  height: 20px;
+}
+#after-game{
+  margin: 100px;
+}
+
+	

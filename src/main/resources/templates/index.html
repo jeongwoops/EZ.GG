@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EZ.GG</title>
+    <style>
+    </style>
+    <link rel="stylesheet" href="static/css/header.css"/>
+    <link rel="stylesheet" href="static/css/main2.css"/>
+</head>
+<body>
+<div th:include="views/header"></div>
+<div th:include="views/banner"></div>
+   
+   
+    <div class="content">
+        <div id="search-area">
+            <input type="text" id="search-bar" placeholder="소환사 검색" autocomplete="off"/>
+            <button type="submit" id="search-btn">검색</button>
+            <div class="autocomplete2"></div> 
+        </div>
+    </div>
+    <div class="board">
+        <div id="notice">
+            <div class="notice-area">
+                <div>
+                    <h2>공지사항</h2>
+                    <table border="1" id="tb-notice">
+                        <thead>
+                            <tr>
+                                <th>글번호</th>
+                                <th>제목</th>
+                                <th>작성자</th>
+                                <th>작성일</th>
+                                <th>조회수</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <th>EZ.GG에 오신걸 환영합니다!</th>
+                                <td>admin</td>
+                                <td>2024-05-02</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <th>회원과 비회원 서비스차이점</th>
+                                <td>admin</td>
+                                <td>2024-05-02</td>
+                                <td>20</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <th>내전정보서비스 이용방법</th>
+                                <td>admin</td>
+                                <td>2024-05-02</td>
+                                <td>14</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <th>건의/문의사항</th>
+                                <td>admin</td>
+                                <td>2024-05-02</td>
+                                <td>5</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+                <div id="championUser">
+                    <h2>Champion</h2>
+                    <div id="championUser-area">
+                        <table border="1" id="tb-championUser">
+                            <thead>
+                                <tr>
+                                    <th>순위</th>
+                                    <th>#</th>
+                                    <th>닉네임</th>
+                                    <th>기록</th>
+                                    <th>MVP</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <th>챌린저</th>
+                                    <td>김씨</td>
+                                    <td>5연승</td>
+                                    <td>80point</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <th>그랜드마스터</th>
+                                    <td>admin</td>
+                                    <td>4연승</td>
+                                    <td>50point</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <th>마스터</th>
+                                    <td>유저01</td>
+                                    <td>3연승</td>
+                                    <td>10point</td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <th>마스터</th>
+                                    <td>유저02</td>
+                                    <td>3연승</td>
+                                    <td>0point</td>
+                                </tr>
+
+                            </tbody>
+                       </table>
+                    </div>
+                </div>          
+            </div>
+        </div>
+    </div>
+    <div th:include="views/footer"></div>
+</body>
+</html>

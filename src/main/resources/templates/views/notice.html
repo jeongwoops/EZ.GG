@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>공지사항</title>
+</head>
+<link rel="stylesheet" href="static/css/main.css"/>
+<body>
+    <div th:include="views/header"></div>
+    <h2 align="center">공지사항</h2>
+    <br>
+
+        <form action="readNotice" method="post" >
+		    <table align="center" class="list-area" border="1">
+		        <thead>
+		            <tr>
+		                <th width="70">글번호</th>
+		                <th width="300">제목</th></a>
+		                <th width="100">작성자</th>
+		                <th width="50">조회수</th>
+		                <th width="100">작성일</th>
+		            </tr>
+		        </thead>
+		        <tbody> 
+		        
+            		<tr th:if="${ list == null }">
+            			<td colspan="6">조회된 게시글이 없습니다.</td>
+            		</tr>
+		        	<th:block th:if="${ list != null && !list.isEmpty() }">
+			            <tr th:each="n : ${list}">
+			                <td th:text="${n.getNoticeNo()}"></td>
+			       			<td th:text="${n.getNoticeTitle()}"></td>
+			                <td th:text="${n.getWriter()}"></td>
+			                <td th:text="${n.getNoticeCount()}"></td>
+			                <td th:text="${n.getWriteDate()}"></td>
+			            </tr>
+		        	</th:block>
+		        </tbody>
+		    </table>
+	     </form>   
+    <div>
+    	 <a href="createNoti">| 글쓰기 |</a>
+    </div>
+     <div th:include="views/footer"></div>
+</body>
+</html>

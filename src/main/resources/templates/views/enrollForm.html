@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입</title>
+    <link rel="stylesheet" href="static/css/enrollForm.css"/>
+ 
+  
+</head>
+<body>
+    <div th:include="views/header"></div>
+    <div th:include="views/banner"></div>
+ 
+<div id="signUp-area">
+    <div id="inpt-signUp">
+    	<form action="signUp" method="post">
+	        <a>ID</a> &nbsp; <input type="text" class="input-signUp"  name="userId"/><br>	    
+	        <a>PW</a> <input type="password" class="input-signUp"  name="userPw"/><br>	
+	        <a>NickName</a> <input type="text" class="input-signUp2"  name="nickName"/> <br>
+	
+	        <button type="submit" id="btn-signUp"><span>회원가입</span></button><br><br>
+		</form>
+       
+    </div>
+  </div>
+  
+ <div th:include="views/footer"></div>
+</body>
+</html>

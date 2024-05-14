@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사설게임 생성</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <link rel="stylesheet" href="static/css/myPage.css"/>
+    
+    <script src="static/js/select.js"></script>
+   
+</head>
+<body>
+ <div th:include="views/header"></div>
+
+    <div id="create-area">
+        <div id="create-team">
+            <h3>팀생성</h3>
+            <form action="team" method="post">
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Team 1</th>
+                    <th scope="col">Team 2</th>
+                    
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">TOP</th>
+                    <td><input type="text" name="T1top"/></td>
+                    <td><input type="text" name="T2top"/></td>
+                   
+                  </tr>
+                  <tr>
+                    <th scope="row">JUG</th>
+                    <td><input type="text" name="T1jug"/></td>
+                    <td><input type="text" name="T2jug"/></td>
+                    
+                  </tr>
+                  <tr>
+                    <th scope="row">MID</th>
+                    <td><input type="text" name="T1mid"/></td>
+                    <td><input type="text" name="T2mid"/></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">ADC</th>
+                    <td><input type="text" name="T1adc"/></td>
+                    <td><input type="text" name="T2adc"/></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">SUP</th>
+                    <td><input type="text" name="T1sup"/></td>
+                    <td><input type="text" name="T2sup"/></td>
+                  </tr>
+                </tbody>
+              </table>
+              </form>
+        </div>
+        
+        <div id="forecast">
+            
+            <script></script>
+             <h3>예상승률 35 : 65</h3>
+            <div style="max-width: 300px;">
+        <canvas id="myChart"></canvas>
+      </div>
+        </div>
+
+    
+
+        
+        <div class="game-container">
+            <h3>진영 선택</h3>
+            <input type="text" id="select-color" name="captain" />
+            <div class="buttons">
+                <button id ="start-btn">Start</button>
+            </div>
+            <canvas id="game-board" width="400" height="400"></canvas>
+          
+        </div>
+        <script src="static/js/clone.js"></script>
+        
+       
+    </div>
+    
+    
+     
+
+    <div th:include="views/footer"></div>
+    
+</body>
+</html>

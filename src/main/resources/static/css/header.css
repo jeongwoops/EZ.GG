@@ -1,0 +1,89 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #F7F7F7;
+    justify-content: center;
+    align-items: center;
+    
+}
+.content{
+min-height: 500px;
+}
+.banner{
+padding: 0px;
+margin: 0px;
+
+}
+.abc-area{
+display: flex;
+justify-content: space-between;
+}
+.sign a{
+font-size: 20px;
+text-decoration: none;
+color: blue;
+font-weight: bolder;
+}
+
+#go-area{
+background-color: rgb(43, 92, 184);
+padding: 7px 0px 7px 0px;
+margin-top: 30px;
+margin-left: 0px;
+display: flex;
+justify-content: center;
+}
+#view-area{
+margin-top: 50px;
+margin-left: 780px;
+height: 0;
+}
+#blank-area{
+background-color: rgb(43, 92, 184);
+min-width: 500px;
+
+}
+.go{
+background-color: rgb(43, 92, 184);
+display: inline-block;
+width: 120px;
+height: 33px;
+border-radius: 10px;
+text-decoration: none;
+text-align: center;
+color: white;
+font-weight:bolder;
+margin-left: 30px;
+}
+.go:hover {
+background-color: #F7F7F7;
+color: black;
+}
+#search-bar{
+width: 700px;
+height:45px;
+border-radius: 16px;
+font-size: 18px;
+margin-top: 300px;
+margin-left: 550px;
+border-color: blue;
+}
+#search-btn{
+width: 70px;
+height: 50px;
+border-radius: 15px;
+margin: 8px;
+background-color: rgb(43, 92, 184);
+color: white;
+}
+#search-btn:hover{
+background-color: #F7F7F7;
+color: black;
+
+}
+footer{
+    height: 20px;
+    position : relative;
+    transform : translateY(-100%);
+    
+}
+
