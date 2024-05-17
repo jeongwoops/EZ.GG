@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .modal{
+            position:absolute;
+            display:none;
+            
+            justify-content: center;
+            top:170px;
+            right:0;
+            border-color: blueviolet;
+            
+            width:300px;
+            height:80%;
+
+            
+            color: black;
+            background-color: rgb(244, 222, 255);
+        }
+        hr{
+            width:300px;
+            background:rgb(175, 3, 255);
+            height:1px;
+
+            border:0;
+        }
+    </style>
+</head>
+<body>
+    <div class="modal">
+        <div class="modal_body">
+            <h2>친구목록</h2>
+            <hr>
+            <p>모달창 내용 </p>
+        </div>
+    </div>
+    <button class="btn-open-modal">Modal열기</button>
+    <script>
+        const modal = document.querySelector('.modal');
+        const btnOpenModal=document.querySelector('.btn-open-modal');
+
+        btnOpenModal.addEventListener("click", ()=>{
+            modal.style.display="flex";
+        });
+    </script>
+</body>
+</html>

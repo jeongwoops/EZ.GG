@@ -20,4 +20,22 @@
   				FROM MEMBER 
   				WHERE USER_ID=#{userId} and USER_PW=#{userPw}
   		</select>
+  		
+  		<select id="searchUser" resultMap="memberResultSet">
+  								SELECT USER_NO, NICKNAME FROM MEMBER
+	  							WHERE NICKNAME LIKE '%' || #{nickName} || '%'
+	  							
+  		</select>
+  		<insert id="addFriend">
+  			INSERT INTO FRIEND
+  				VALUES(#{userNo},#{friendNo},'Y')
+  		</insert>
+  		<select id="flist" resultType="String">
+  							 SELECT NICKNAME 
+							  FROM MEMBER M JOIN FRIEND F ON (M.USER_NO = F.FRIEND_NO)
+							  WHERE F.USER_NO=#{userNo}
+	  							
+  		</select>
+  		
+  	
   </mapper>
