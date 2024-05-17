@@ -30,12 +30,21 @@
   			INSERT INTO FRIEND
   				VALUES(#{userNo},#{friendNo},'Y')
   		</insert>
-  		<select id="flist" resultType="String">
-  							 SELECT NICKNAME 
+  		<select id="flist" resultMap="memberResultSet">
+  							 SELECT M.USER_NO,NICKNAME 
 							  FROM MEMBER M JOIN FRIEND F ON (M.USER_NO = F.FRIEND_NO)
-							  WHERE F.USER_NO=#{userNo}
+							  WHERE F.USER_NO=#{userNo} AND STATUS='Y'
 	  							
   		</select>
-  		
+  		<delete id="deleteFriend">
+  			
+  			DELETE FROM FRIEND WHERE USER_NO=#{userNo} AND FRIEND_NO=#{friendNo}
+
+  			
+  		</delete>
+  		<select id="selectUserByUserNo" resultMap="memberResultSet">
+			SELECT * FROM MEMBER
+			WHERE USER_NO = #{userNo}
+		</select>
   	
   </mapper>

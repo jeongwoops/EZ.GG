@@ -92,11 +92,28 @@ public class MemberController {
 		}
 		return "redirect:/";
 	}
+	@RequestMapping("deleteFriend")
+	public String deleteFriend(Friend f,Model model, HttpSession session) {
+		
+		int result = mService.deleteFriend(f);
+		
+		try{
+		if(result > 0) {
+			session.setAttribute("msg","회원가입을 완료했습니다.");
+		} else {
+			session.setAttribute("msg","회원가입을 실패했습니다.");
+		}
+		}catch(Exception e) {
+			session.setAttribute("msg", "회원가입 중 예외 발생");
+		}
+		return "redirect:/";
+	}
+	
 	@ResponseBody
 	@RequestMapping(value="flist", produces="application/json;charset=UTF-8")
-	public List<String> fList(Friend f,Model model, HttpSession session) {
+	public List<Member> fList(Friend f,Model model, HttpSession session) {
 		
-		List<String> result = mService.flist(f);
+		List<Member> result = mService.flist(f);
 		
 		try {
 			if(result != null) {

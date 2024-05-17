@@ -35,11 +35,17 @@ public class MemberServiceImpl implements MemberService{
 		return mDao.searchUser(nickName);
 	}
 	@Override
-	public List<String> flist(Friend f) {
-		List<String> friends = mDao.flist(f);
+	public List<Member> flist(Friend f) {
+		List<Member> friends = mDao.flist(f);
 		return friends;
 	}
-	
-	
-	
+	@Override
+	public int deleteFriend(Friend f) {
+		return mDao.deleteFriend(f);
+	}
+
+	@Override
+	public Member selectUserByUserNo(String userNo) {
+		return mDao.selectUserByUserNo(userNo);
+	}
 }

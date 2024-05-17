@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사설게임정보</title>
+    <link rel="stylesheet" href="static/css/myPage.css"/>
+</head>
+<body>
+<div th:include="views/header"></div>
+<div th:include="views/banner"></div>
+<h2>내전정보</h2>
+
+<div id="privategameInfo">
+
+    <div class="mypage-area">
+        <div id="basicUserInfo">
+            <img src="" alt="userIcon"/>
+
+
+            <p class="label-txt" th:text="${nickName}"></p>
+            <img src="static/icon/tier-example.png" alt="userTier"/><br>
+            내전티어 : gold <br>
+            주포지션 : MID <br>
+            주챔피언 : 가렌 <br>
+
+            <span th:text="${pcount}"></span>전<span th:text="${pgame_win}"></span>승 <span th:text="${pgame_lose}"></span> 패 <br>
+            승률 : <span th:text="${pgame_winrate}"></span> % <br>
+            KDA : <span th:text="${pgame_kda}"></span>  <br>   <br>
+            MVP SCORE : 11
+        </div>
+        <table id="basicUserRecord" border="1">
+            <tr>
+                <td>승리(result)</td>
+            </tr>
+            <tr>
+                <td>승리</td>
+            </tr>
+            <tr>
+                <td>패배</td>
+            </tr>
+            <tr>
+                <td>승리</td>
+            </tr>
+            <tr>
+                <td>승리</td>
+            </tr>
+        </table>
+    </div>
+
+</div>
+
+<div th:include="views/footer"></div>
+</body>
+</html>

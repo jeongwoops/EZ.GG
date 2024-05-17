@@ -1,5 +1,7 @@
 package com.kh.ez.pgame.controller;
 
+import com.kh.ez.member.model.service.MemberService;
+import com.kh.ez.member.model.vo.Friend;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,13 +14,19 @@ import com.kh.ez.pgame.service.PgameService;
 import jakarta.servlet.http.HttpSession;
 import lombok.extern.slf4j.Slf4j;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Slf4j
 @Controller
 public class PgameController {
 	
 	@Autowired
 	private PgameService pService;
-	
+	@Autowired
+	private MemberService mService;
+
+
 	@RequestMapping("after")
 	public String after(Pgame p, Model model, HttpSession session) {
 		
@@ -49,11 +57,12 @@ public class PgameController {
 			log.info("{}",result4);
 			if(result > 0) {
 				session.setAttribute("msg"," 완료했습니다.");
-				session.setAttribute("pcount", result);
-				session.setAttribute("pgame_win", result2);
-				session.setAttribute("pgame_lose", result3);
-				session.setAttribute("pgame_winrate", result4);
-				session.setAttribute("pgame_kda", result5);
+
+				model.addAttribute("pcount", result);
+				model.addAttribute("pgame_win", result2);
+				model.addAttribute("pgame_lose", result3);
+				model.addAttribute("pgame_winrate", result4);
+				model.addAttribute("pgame_kda", result5);
 
 			} else {
 				session.setAttribute("msg"," 실패했습니다.");
@@ -63,5 +72,34 @@ public class PgameController {
 			}
 		return "views/privateGameInfo";
 	}
-	
+	@RequestMapping("viewFriendInfo")
+	public String viewFriendInfo( Friend friend, Model model, HttpSession session) {
+
+		Member user = mService.selectUserByUserNo(String.valueOf(friend.getFriendNo()));
+		int result = pService.calcInfo(friend.getFriendNo() + "");
+		int result2 = pService.calcInfo2(friend.getFriendNo() + "");
+		int result3 = pService.calcInfo3(friend.getFriendNo() + "");
+		int result4 = pService.calcInfo4(friend.getFriendNo() + "");
+		double result5 = pService.calcInfo5(friend.getFriendNo() + "");
+			try {
+				log.info("{}", result4);
+				if (result > 0) {
+					session.setAttribute("msg", " 완료했습니다.");
+
+					model.addAttribute("pcount", result);
+					model.addAttribute("pgame_win", result2);
+					model.addAttribute("pgame_lose", result3);
+					model.addAttribute("pgame_winrate", result4);
+					model.addAttribute("pgame_kda", result5);
+					model.addAttribute("nickName", user.getNickName());
+
+				} else {
+					session.setAttribute("msg", " 실패했습니다.");
+				}
+			} catch (Exception e) {
+				session.setAttribute("msg", " 예외 발생");
+			}
+			return "views/viewFriendInfo";
+
+	}
 }

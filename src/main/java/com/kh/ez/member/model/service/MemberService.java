@@ -18,10 +18,12 @@ public interface MemberService {
 
 	int addFriend(Friend f);
 
-	List<String>  flist(Friend f);
+	List<Member>  flist(Friend f);
+
+	int deleteFriend(Friend f);
 
 
-	
+	Member selectUserByUserNo(String userNo);
 
 
 

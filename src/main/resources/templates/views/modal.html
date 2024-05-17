@@ -36,7 +36,7 @@
     <script>
         const modal = document.querySelector('.modal');
         const btnOpenModal=document.querySelector('.btn-open-modal');
-        
+       
         onload = () => {
         	viewFriends();
         }
@@ -108,7 +108,8 @@
 				
 					for (let i=0; i < result.length; i++) {
 						friendList += "<li>"
-							+ result[i]
+							+ "<span onclick='viewFriendInfo(" + result[i].userNo + ")'>" + result[i].nickName + "</span>"
+						+ "<input type='button' no='" + result[i].userNo + "' value='-' onclick='deleteFriend(this)' /> "
 						+ "</li>";
 						
 					}
@@ -120,6 +121,32 @@
     			
     		}
     	});
+        }
+        function deleteFriend(target) {
+        	alert('친구삭제완료');
+        	$.ajax({
+        		url : "deleteFriend",
+        		type : "post",
+        		data : {
+        			userNo: $("input[name=userNo]").val(),
+        			friendNo: $(target).attr('no')
+        		},
+        		success : function(result){
+        			console.log(result);
+        			viewFriends();
+	        			
+    			},
+    			error : function(error){
+		    			
+    			}
+       			    	
+        	})
+        }
+		 function viewFriendInfo(no) {
+        	alert('접속');
+
+        	location.href = 'viewFriendInfo?friendNo='+no;
+
         }
     </script>
 </body>

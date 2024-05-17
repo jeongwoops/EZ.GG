@@ -34,12 +34,19 @@ public class MemberDao {
 		return sqlSession.insert("memberMapper.addFriend",f);
 	}
 
-	public List<String> flist(Friend f) {
+	public List<Member> flist(Friend f) {
 		return (List)sqlSession.selectList("memberMapper.flist",f);
 	}
 
-
+	public int deleteFriend(Friend f) {
+		return sqlSession.delete("memberMapper.deleteFriend",f);
 	}
+
+	public Member selectUserByUserNo(String userNo){
+		return  sqlSession.selectOne("memberMapper.selectUserByUserNo",userNo);
+	}
+
+}
 	
 
 
