@@ -3,7 +3,9 @@ package com.kh.ez.member.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +17,9 @@ import com.kh.ez.member.model.vo.Friend;
 import com.kh.ez.member.model.vo.Member;
 
 import jakarta.servlet.http.HttpSession;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
+
 
 @Controller
 public class MemberController {
@@ -43,19 +48,23 @@ public class MemberController {
 	public String signIn(Member m,Model model, HttpSession session) {
 		
 		Member result = mService.memberLogin(m);
-		
+		String msg = null;
+
 		try {
 			if(result != null) {
-				session.setAttribute("msg","환영합니다!");
+
 				session.setAttribute("loginUser", result);
 			} else {
 				session.setAttribute("msg", "잘못된 아이디/비밀번호 입니다.");
+
 			}
 		}catch(Exception e) {
 			session.setAttribute("msg", "로그인 중 예외 발생");
 		}
 		return "redirect:/";
 	}
+
+
 	
 	@ResponseBody
 	@RequestMapping(value="searchUser", produces="application/json;charset=UTF-8")
@@ -65,10 +74,10 @@ public class MemberController {
 		
 		try {
 			if(result != null) {
-				session.setAttribute("msg","성공!");
+			System.out.println("성공");
 				
 			} else {
-				session.setAttribute("msg", "실패");
+				System.out.println("실패");
 			}
 		}catch(Exception e) {
 			session.setAttribute("msg", "예외 발생");
@@ -83,12 +92,12 @@ public class MemberController {
 		
 		try{
 		if(result > 0) {
-			session.setAttribute("msg","회원가입을 완료했습니다.");
+			System.out.println("성공");
 		} else {
-			session.setAttribute("msg","회원가입을 실패했습니다.");
+			System.out.println("실패");
 		}
 		}catch(Exception e) {
-			session.setAttribute("msg", "회원가입 중 예외 발생");
+			session.setAttribute("msg", "친구추가 중 예외 발생");
 		}
 		return "redirect:/";
 	}
@@ -99,9 +108,9 @@ public class MemberController {
 		
 		try{
 		if(result > 0) {
-			session.setAttribute("msg","회원가입을 완료했습니다.");
+			System.out.println("성공");
 		} else {
-			session.setAttribute("msg","회원가입을 실패했습니다.");
+			System.out.println("실패");
 		}
 		}catch(Exception e) {
 			session.setAttribute("msg", "회원가입 중 예외 발생");
@@ -117,9 +126,9 @@ public class MemberController {
 		
 		try {
 			if(result != null) {
-				session.setAttribute("msg","환영합니다!");
+				System.out.println("성공");
 			} else {
-				session.setAttribute("msg", "잘못된 아이디/비밀번호 입니다.");
+				System.out.println("실패");
 			}
 		}catch(Exception e) {
 			session.setAttribute("msg", "로그인 중 예외 발생");
@@ -163,5 +172,6 @@ public class MemberController {
 	public String createNotice() {
 		return "views/createNotice";
 	}
+
 }
 

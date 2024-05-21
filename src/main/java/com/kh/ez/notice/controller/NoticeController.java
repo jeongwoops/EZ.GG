@@ -30,12 +30,12 @@ public class NoticeController {
 		try{
 			log.info("게시글 개수 : {}", nList);
 			if(nList.size() > 0) {
-				session.setAttribute("msg"," 완료했습니다.");
+
 				session.setAttribute("newNotice",nList);
 				model.addAttribute("list",nList);
 //				model.addAttribute("list",count);
 			} else {
-				session.setAttribute("msg"," 실패했습니다.");
+				System.out.print("실패");
 			}
 			}catch(Exception e) {
 				session.setAttribute("msg", " 예외 발생");

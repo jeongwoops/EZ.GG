@@ -34,7 +34,7 @@ public class PgameController {
 		
 		try{
 			if(result > 0) {
-				session.setAttribute("msg"," 완료했습니다.");
+				session.setAttribute("msg"," 업데이트 완료했습니다.");
 			} else {
 				session.setAttribute("msg"," 실패했습니다.");
 			}
@@ -56,7 +56,7 @@ public class PgameController {
 		try{
 			log.info("{}",result4);
 			if(result > 0) {
-				session.setAttribute("msg"," 완료했습니다.");
+
 
 				model.addAttribute("pcount", result);
 				model.addAttribute("pgame_win", result2);
@@ -65,7 +65,7 @@ public class PgameController {
 				model.addAttribute("pgame_kda", result5);
 
 			} else {
-				session.setAttribute("msg"," 실패했습니다.");
+				session.setAttribute("msg"," 응답 실패했습니다.");
 			}
 			}catch(Exception e) {
 				session.setAttribute("msg", " 예외 발생");
@@ -84,7 +84,7 @@ public class PgameController {
 			try {
 				log.info("{}", result4);
 				if (result > 0) {
-					session.setAttribute("msg", " 완료했습니다.");
+
 
 					model.addAttribute("pcount", result);
 					model.addAttribute("pgame_win", result2);
