@@ -51,7 +51,21 @@ public class PgameDao {
 			return sqlSession.selectOne("pgameMapper.calc7",userNo);
 			
 		}
-
+	public int countPosition1(String userNo){
+		return sqlSession.selectOne("pgameMapper.topcount",userNo);
+	}
+	public int countPosition2(String userNo){
+		return sqlSession.selectOne("pgameMapper.jugcount",userNo);
+	}
+	public int countPosition3(String userNo){
+		return sqlSession.selectOne("pgameMapper.midcount",userNo);
+	}
+	public int countPosition4(String userNo){
+		return sqlSession.selectOne("pgameMapper.adccount",userNo);
+	}
+	public int countPosition5(String userNo){
+		return sqlSession.selectOne("pgameMapper.supcount",userNo);
+	}
 
 	
 }

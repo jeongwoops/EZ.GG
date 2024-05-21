@@ -1,11 +1,13 @@
 package com.kh.ez.pgame.service;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.kh.ez.pgame.model.dao.PgameDao;
 import com.kh.ez.pgame.model.vo.Pgame;
 
+@Slf4j
 @Service
 public class PgameServiceImpl implements PgameService{
 
@@ -46,5 +48,69 @@ public class PgameServiceImpl implements PgameService{
 	@Override
 	public int calcInfo6(String userNo ) {
 		return pDao.calcInfo6( userNo);
+	}
+
+	@Override
+	public String calcInfo7(String userNo) {
+		int win = pDao.calcInfo2(userNo);
+		int lose = pDao.calcInfo3(userNo);
+		int pScore = (win * 25) - (lose * 25);
+		String pTier = null;
+		if (pScore < 100) {
+			pTier = "Iron";
+		} else if (pScore < 200) {
+			pTier = "Bronze";
+		} else if (pScore < 300) {
+			pTier = "Silver";
+		} else if (pScore < 400) {
+			pTier = "Gold";
+		} else if (pScore < 500) {
+			pTier = "Platium";
+		} else if (pScore < 600) {
+			pTier = "Emerald";
+		} else if (pScore < 700) {
+			pTier = "Diamond";
+		} else if (pScore < 800) {
+			pTier = "Master";
+		} else if (pScore < 900) {
+			pTier = "GrandMaster";
+		} else {
+			pTier = "Challenger";
+		}
+		return pTier;
+	}
+	public String countPosition(String userNo) {
+		int topCount = pDao.countPosition1(userNo);
+		int jugCount = pDao.countPosition2(userNo);
+		int midCount = pDao.countPosition3(userNo);
+		int adcCount = pDao.countPosition4(userNo);
+		int supCount = pDao.countPosition5(userNo);
+		int[] pCount = {topCount, jugCount, midCount, adcCount, supCount};
+		int max = pCount[0];
+		int maxPos = 1;
+		String mostPosition = null;
+
+		for (int i = 0; i < pCount.length; i++) {
+			if (max < pCount[i]) {
+				max = pCount[i];
+				maxPos = i + 1;
+				System.out.println(max);
+				System.out.println(maxPos);
+				System.out.println(i);
+			}
+		}
+				if (maxPos == 1) {
+					mostPosition = "TOP";
+				} else if (maxPos == 2) {
+					mostPosition = "JUG";
+				} else if (maxPos == 3) {
+					mostPosition = "MID";
+				} else if (maxPos == 4) {
+					mostPosition = "ADC";
+				} else if (maxPos == 5) {
+					mostPosition = "SUP";
+				}
+		log.info(mostPosition);
+		return mostPosition;
 	}
 }

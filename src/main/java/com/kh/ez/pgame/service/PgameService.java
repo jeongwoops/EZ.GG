@@ -14,6 +14,7 @@ public interface PgameService {
 	int calcInfo4(String userNo);
 	double calcInfo5(String userNo);
 	int calcInfo6(String userNo);
-	
+	String countPosition(String userNo);
 
+    String calcInfo7(String userNo);
 }
