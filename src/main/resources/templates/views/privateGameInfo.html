@@ -20,8 +20,8 @@
                 
                 <p class="label-txt" th:text="${session.loginUser.nickName}"></p>
                 <img src="static/icon/tier-example.png" alt="userTier"/><br>
-                내전티어 : gold <br>
-                주포지션 : MID <br>
+                내전티어 : <span th:text="${pTier}"></span>  <br>
+                주포지션 : <span th:text="${pMostChampion}"></span>  <br>
                 주챔피언 : 가렌 <br>
 	    	
                 <span th:text="${pcount}"></span>전<span th:text="${pgame_win}"></span>승 <span th:text="${pgame_lose}"></span> 패 <br>

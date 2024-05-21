@@ -44,7 +44,12 @@
         
 
         btnOpenModal.addEventListener("click", ()=>{
-            modal.style.display="flex";
+        	if(modal.style.display=="flex"){
+        		modal.style.display="none";
+        	} else {
+				 modal.style.display="flex";
+        	}
+
         });
         
         function searchUser(){

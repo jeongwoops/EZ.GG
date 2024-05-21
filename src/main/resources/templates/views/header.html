@@ -8,6 +8,12 @@
    <link rel="stylesheet" href="static/css/header.css"/>
 </head>
 <body>
+    <div th:if="${session.msg != null}">
+        <script>
+            alert("[[${session.msg}]]");
+
+        </script>
+    </div>
     <div class="banner">
         <div class="abc-area" th:if="${ session.loginUser == null }">
               <div>
