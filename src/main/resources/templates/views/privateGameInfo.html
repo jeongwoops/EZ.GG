@@ -8,7 +8,7 @@
 </head>
 <body>
    	  <div th:include="views/header"></div>
-      <div th:include="views/banner"></div>
+
     <h2>내전정보</h2>
 
     <div id="privategameInfo">
@@ -18,16 +18,16 @@
                 <img src="" alt="userIcon"/>
       
                 
-                <p class="label-txt" th:text="${session.loginUser.nickName}"></p>
+                <a class="label-txt" th:text="${session.loginUser.nickName}"></a>
                 <img src="static/icon/tier-example.png" alt="userTier"/><br>
-                내전티어 : <span th:text="${pTier}"></span>  <br>
-                주포지션 : <span th:text="${pMostChampion}"></span>  <br>
-                주챔피언 : 가렌 <br>
+                <h3>내전티어 : <span th:text="${pTier}"></span></h3>
+                <h3>주포지션 : <a class="info-posi"><span th:text="${pMostPosition}"></span></a></h3>
+                <h3>주챔피언 : <a class="info-posi">가렌 </a></h3>
 	    	
-                <span th:text="${pcount}"></span>전<span th:text="${pgame_win}"></span>승 <span th:text="${pgame_lose}"></span> 패 <br>
-                승률 : <span th:text="${pgame_winrate}"></span> % <br>
-                KDA : <span th:text="${pgame_kda}"></span>  <br>   <br>
-                MVP SCORE : 11
+                <h3><span th:text="${pcount}"></span> 전 <span th:text="${pgame_win}"></span> 승 <span th:text="${pgame_lose}"></span> 패 </h3>
+                <h3>승률 : <span th:text="${pgame_winrate}"></span> % </h3>
+                <h3>KDA : <span th:text="${pgame_kda}" th:style="${pgame_kda >= 4 ? 'color:red;' : pgame_kda >= 3 ? 'color:blue;' : pgame_kda >= 2 ? 'color:green;': 'color:grey;'}"></span>  </h3>
+                <h3>MVP SCORE : 11</h3>
             </div>
             <table id="basicUserRecord" border="1">
                 <tr>

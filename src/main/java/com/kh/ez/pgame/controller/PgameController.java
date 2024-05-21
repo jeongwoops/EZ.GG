@@ -36,7 +36,7 @@ public class PgameController {
 			if(result > 0) {
 				session.setAttribute("msg"," 업데이트 완료했습니다.");
 			} else {
-				session.setAttribute("msg"," 실패했습니다.");
+
 			}
 			}catch(Exception e) {
 				session.setAttribute("msg", " 예외 발생");
@@ -48,11 +48,14 @@ public class PgameController {
 	public String privateGameInfo( Model model, HttpSession session) {
 		
 		Member loginUser = (Member)session.getAttribute("loginUser");
+		log.info("{}",loginUser);
 		int result = pService.calcInfo(loginUser.getUserNo()+"");
 		int result2 = pService.calcInfo2(loginUser.getUserNo()+"");
 		int result3 = pService.calcInfo3(loginUser.getUserNo()+"");
 		int result4 = pService.calcInfo4(loginUser.getUserNo()+"");
 		double result5= pService.calcInfo5(loginUser.getUserNo()+"");
+		String result7 = pService.calcInfo7(loginUser.getUserNo()+"");
+		String result8 = pService.countPosition(loginUser.getUserNo()+"");
 		try{
 			log.info("{}",result4);
 			if(result > 0) {
@@ -63,9 +66,10 @@ public class PgameController {
 				model.addAttribute("pgame_lose", result3);
 				model.addAttribute("pgame_winrate", result4);
 				model.addAttribute("pgame_kda", result5);
-
+				model.addAttribute("pTier", result7);
+				model.addAttribute("pMostPosition", result8);
 			} else {
-				session.setAttribute("msg"," 응답 실패했습니다.");
+
 			}
 			}catch(Exception e) {
 				session.setAttribute("msg", " 예외 발생");
@@ -94,7 +98,7 @@ public class PgameController {
 					model.addAttribute("nickName", user.getNickName());
 
 				} else {
-					session.setAttribute("msg", " 실패했습니다.");
+
 				}
 			} catch (Exception e) {
 				session.setAttribute("msg", " 예외 발생");

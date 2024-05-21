@@ -106,5 +106,21 @@ header {
 #after-game{
   margin: 100px;
 }
+body {
+    text-align: center;
 
-	
+}
+#basicUserInfo{
+    font-size: 20px;
+}
+.info-posi{
+    font-size: 25px;
+    color: red;
+    font-weight: 800px;
+}
+.label-txt{
+font-size: 25px;
+   color: blue;
+   font-weight: bolder;
+
+}
