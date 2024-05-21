@@ -38,17 +38,42 @@
   		</select>	
 
   		<select id="calc5" resultType="_int">
-  			SELECT SUM(PGAME_K) FROM PRIVATEGAME
+  			SELECT NVL(SUM(PGAME_K), 0) FROM PRIVATEGAME
   				WHERE USER_NO= #{userNo}
   		</select>
   		<select id="calc6" resultType="_int">
-  			SELECT SUM(PGAME_D) FROM PRIVATEGAME
+  			SELECT NVL(SUM(PGAME_D), 0) FROM PRIVATEGAME
   				WHERE USER_NO= #{userNo}
   		</select>
   		<select id="calc7" resultType="_int">
-  			SELECT SUM(PGAME_A) FROM PRIVATEGAME
+  			SELECT NVL(SUM(PGAME_A), 0) FROM PRIVATEGAME
   				WHERE USER_NO= #{userNo}
   		</select>
+		<select id="topcount" resultType="_int">
+			SELECT COUNT(*) FROM PRIVATEGAME
+			WHERE USER_NO = #{userNo} AND PGAME_POSITION=1
+		</select>
+
+		<select id="jugcount" resultType="_int">
+			SELECT COUNT(*) FROM PRIVATEGAME
+			WHERE USER_NO = #{userNo} AND PGAME_POSITION=2
+		</select>
+
+		<select id="midcount" resultType="_int">
+			SELECT COUNT(*) FROM PRIVATEGAME
+			WHERE USER_NO = #{userNo} AND PGAME_POSITION=3
+		</select>
+
+		<select id="adccount" resultType="_int">
+			SELECT COUNT(*) FROM PRIVATEGAME
+			WHERE USER_NO = #{userNo} AND PGAME_POSITION=4
+		</select>
+
+		<select id="supcount" resultType="_int">
+			SELECT COUNT(*) FROM PRIVATEGAME
+			WHERE USER_NO = #{userNo} AND PGAME_POSITION=5
+		</select>
+
   		
 
   	
