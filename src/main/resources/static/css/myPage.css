@@ -118,9 +118,26 @@ body {
     color: red;
     font-weight: 800px;
 }
-.label-txt{
+#loginid{
 font-size: 25px;
    color: blue;
    font-weight: bolder;
 
+}
+#basicUserRecord{
+
+    width: 800px;
+    text-align:center;
+    font-weight: 600;
+    color: white;
+
+    border-radius:3px;
+}
+.mypage-area {
+     justify-content: space-evenly;
+      display: flex;
+      width: 100%;
+}
+#privategameInfo{
+    margin-top : 150px;
 }

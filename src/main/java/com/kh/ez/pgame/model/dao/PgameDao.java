@@ -1,10 +1,14 @@
 package com.kh.ez.pgame.model.dao;
 
+import com.kh.ez.member.model.vo.Member;
+import com.kh.ez.pgame.model.PgameDto;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.kh.ez.pgame.model.vo.Pgame;
+
+import java.util.List;
 
 @Repository
 public class PgameDao {
@@ -67,5 +71,7 @@ public class PgameDao {
 		return sqlSession.selectOne("pgameMapper.supcount",userNo);
 	}
 
-	
+	public List<PgameDto> calcInfo8(String userNo) {
+		return (List)sqlSession.selectList("pgameMapper.pRecord", userNo);
+	}
 }

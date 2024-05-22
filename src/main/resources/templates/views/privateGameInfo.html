@@ -8,8 +8,8 @@
 </head>
 <body>
    	  <div th:include="views/header"></div>
-
-    <h2>내전정보</h2>
+    <br>
+    <h1>내전정보</h1>
 
     <div id="privategameInfo">
     	
@@ -18,9 +18,9 @@
                 <img src="" alt="userIcon"/>
       
                 
-                <a class="label-txt" th:text="${session.loginUser.nickName}"></a>
+                <a id="loginid" th:text="${session.loginUser.nickName}"></a><br><br>
                 <img src="static/icon/tier-example.png" alt="userTier"/><br>
-                <h3>내전티어 : <span th:text="${pTier}"></span></h3>
+                <h3>내전티어 : <span th:text="${pTier}" th:style="${pTier == 'Iron' ? 'color:black;' :pTier == 'Bronze' ? 'color:brown;' : pTier == 'Silver' ? 'color:silver;' : pTier == 'Gold' ? 'color:gold;' : pTier=='Platium' ? 'color: #78e7cb;': pTier == 'Emerald' ? 'color:#4dfa8f;': pTier == 'Diamond' ? 'color: #ff00d4;' : pTier == 'Master' ? 'color:#d91dff;' : pTier == 'GrandMaster' ? 'color: red;': 'color: #fffb00;'}"></span></h3>
                 <h3>주포지션 : <a class="info-posi"><span th:text="${pMostPosition}"></span></a></h3>
                 <h3>주챔피언 : <a class="info-posi">가렌 </a></h3>
 	    	
@@ -30,26 +30,30 @@
                 <h3>MVP SCORE : 11</h3>
             </div>
             <table id="basicUserRecord" border="1">
-                <tr>
-                    <td>승리(result)</td>
+                <tr th:each="pRecord : ${pRecord}">
+                    <td th:text="${pRecord.pWinLose}" th:style="${pRecord.pWinLose == '승리' ? 'background-color:#4884f3;' : 'background-color:#f73737;'}"></td>
+                    <td th:text="|${pRecord.pGameK}&nbsp; / ${pRecord.pGameD}&nbsp; / ${pRecord.pGameA}|" th:style="${pRecord.pWinLose == '승리' ? 'background-color:#4884f3;' : 'background-color:#f73737;'}"></td>
+                    <td th:text="${(pRecord.pGameK+pRecord.pGameA) / pRecord.pGameD}" th:style="${pRecord.pWinLose == '승리' ? 'background-color:#4884f3;' : 'background-color:#f73737;'}" ></td>
                 </tr>
-                <tr>
-                    <td>승리</td>
-                </tr>
-                <tr>
-                    <td>패배</td>
-                </tr>
-                <tr>
-                    <td>승리</td>
-                </tr>
-                <tr>
-                    <td>승리</td>
-                </tr>
+
             </table>
         </div>
    
     </div>
-    
+    <script>
+        onload = () => {
+
+            const kda_list = document.querySelectorAll("#basicUserRecord td:nth-child(5)");
+            kda_list.forEach((kda)=>{
+                console.log(kda);
+                kda.innerText = Number(kda.innerText).toFixed(2)
+            });
+
+
+        }
+
+    </script>
+
    <div th:include="views/footer"></div>
 </body>
 </html>

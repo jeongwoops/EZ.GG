@@ -10,7 +10,7 @@ import lombok.ToString;
 @Setter
 @ToString
 public class Pgame {
-	
+
 	private int userNo;
 	private int pGameNo;
 	private String pGameTitle;
@@ -34,5 +34,7 @@ public class Pgame {
 	private String T2mid;
 	private String T2adc;
 	private String T2sup;
+
+
 
 }

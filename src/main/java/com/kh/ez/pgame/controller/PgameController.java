@@ -2,6 +2,7 @@ package com.kh.ez.pgame.controller;
 
 import com.kh.ez.member.model.service.MemberService;
 import com.kh.ez.member.model.vo.Friend;
+import com.kh.ez.pgame.model.PgameDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -43,12 +44,13 @@ public class PgameController {
 			}
 			return "redirect:/";
 		}
-	
+
 	@RequestMapping("privateGameInfo")
 	public String privateGameInfo( Model model, HttpSession session) {
 		
 		Member loginUser = (Member)session.getAttribute("loginUser");
 		log.info("{}",loginUser);
+
 		int result = pService.calcInfo(loginUser.getUserNo()+"");
 		int result2 = pService.calcInfo2(loginUser.getUserNo()+"");
 		int result3 = pService.calcInfo3(loginUser.getUserNo()+"");
@@ -56,6 +58,8 @@ public class PgameController {
 		double result5= pService.calcInfo5(loginUser.getUserNo()+"");
 		String result7 = pService.calcInfo7(loginUser.getUserNo()+"");
 		String result8 = pService.countPosition(loginUser.getUserNo()+"");
+		List<PgameDto> result9 = pService.calcInfo8(loginUser.getUserNo()+"");
+		log.info("{}",result9);
 		try{
 			log.info("{}",result4);
 			if(result > 0) {
@@ -68,6 +72,7 @@ public class PgameController {
 				model.addAttribute("pgame_kda", result5);
 				model.addAttribute("pTier", result7);
 				model.addAttribute("pMostPosition", result8);
+				model.addAttribute("pRecord", result9);
 			} else {
 
 			}
@@ -106,4 +111,6 @@ public class PgameController {
 			return "views/viewFriendInfo";
 
 	}
+
+
 }

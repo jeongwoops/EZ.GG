@@ -4,6 +4,7 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
    <mapper namespace="pgameMapper">
 	   	<resultMap id="pgameResultSet" type="com.kh.ez.pgame.model.vo.Pgame">
+
 	  		<result column="USER_NO" property="userNo" />
 	  		<result column="PGAME_NO" property="pGameNo" />
 	  		<result column="PGAME_TITLE" property="pGameTitle" />
@@ -16,6 +17,15 @@
 	  		<result column="PGAME_WINLOSE" property="pGameWinLose" />
 	  		<result column="PGAME_MVP" property="pGameMvp" />
 	  	</resultMap>
+		<resultMap id="pgameDtoResultSet" type="com.kh.ez.pgame.model.PgameDto">
+			<result column="PGAME_NO" property="pGameNo" />
+			<result column="NICKNAME" property="nickName" />
+			<result column="PGAME_K" property="pGameK" />
+			<result column="PGAME_D" property="pGameD" />
+			<result column="PGAME_A" property="pGameA" />
+			<result column="PGAME_WINLOSE" property="pGameWinLose" />
+
+		</resultMap>
 	  	
 	  	<insert id="after">
 	  		INSERT INTO PRIVATEGAME(PGAME_NO,PGAME_TITLE,PGAME_COLOR,PGAME_POSITION,PGAME_CHAMPION,PGAME_K,PGAME_D,PGAME_A,PGAME_WINLOSE,PGAME_MVP,USER_NO)
@@ -74,7 +84,15 @@
 			WHERE USER_NO = #{userNo} AND PGAME_POSITION=5
 		</select>
 
-  		
+  		<select id="pRecord" resultMap="pgameDtoResultSet">
+			SELECT PGAME_NO, NICKNAME, PGAME_WINLOSE , PGAME_K, PGAME_D,PGAME_A
+			FROM 	(   SELECT PGAME_NO,NICKNAME,PGAME_WINLOSE, PGAME_K, PGAME_D,PGAME_A
+						FROM PRIVATEGAME JOIN MEMBER USING (USER_NO)
+						WHERE USER_NO = #{userNo}
+						ORDER BY PGAME_NO DESC
+					)
+			WHERE ROWNUM &lt; = 10
+		</select>
 
   	
  <!--

@@ -1,5 +1,6 @@
 package com.kh.ez.pgame.service;
 
+import com.kh.ez.pgame.model.PgameDto;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -7,13 +8,15 @@ import org.springframework.stereotype.Service;
 import com.kh.ez.pgame.model.dao.PgameDao;
 import com.kh.ez.pgame.model.vo.Pgame;
 
+import java.util.List;
+
 @Slf4j
 @Service
 public class PgameServiceImpl implements PgameService{
 
 	@Autowired
 	private PgameDao pDao;
-	
+
 	@Override
 	public int afterGame(Pgame p) {
 		return pDao.afterGame(p);
@@ -112,5 +115,10 @@ public class PgameServiceImpl implements PgameService{
 				}
 		log.info(mostPosition);
 		return mostPosition;
+	}
+	public List<PgameDto> calcInfo8(String userNo) {
+
+
+		return pDao.calcInfo8(userNo);
 	}
 }
