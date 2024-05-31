@@ -2,10 +2,12 @@ package com.kh.ez.pgame.controller;
 
 import com.kh.ez.member.model.service.MemberService;
 import com.kh.ez.member.model.vo.Friend;
+import com.kh.ez.notice.model.vo.Notice;
 import com.kh.ez.pgame.model.PgameDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.kh.ez.member.model.vo.Member;
@@ -14,9 +16,11 @@ import com.kh.ez.pgame.service.PgameService;
 
 import jakarta.servlet.http.HttpSession;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.ArrayList;
 import java.util.List;
+
+import static java.util.Collections.list;
 
 @Slf4j
 @Controller
@@ -44,6 +48,7 @@ public class PgameController {
 			}
 			return "redirect:/";
 		}
+
 
 	@RequestMapping("privateGameInfo")
 	public String privateGameInfo( Model model, HttpSession session) {
@@ -90,6 +95,11 @@ public class PgameController {
 		int result3 = pService.calcInfo3(friend.getFriendNo() + "");
 		int result4 = pService.calcInfo4(friend.getFriendNo() + "");
 		double result5 = pService.calcInfo5(friend.getFriendNo() + "");
+		String result7 = pService.calcInfo7(friend.getFriendNo()+"");
+		String result8 = pService.countPosition(friend.getFriendNo()+"");
+		List<PgameDto> result9 = pService.calcInfo8(friend.getFriendNo()+"");
+
+
 			try {
 				log.info("{}", result4);
 				if (result > 0) {
@@ -101,6 +111,9 @@ public class PgameController {
 					model.addAttribute("pgame_winrate", result4);
 					model.addAttribute("pgame_kda", result5);
 					model.addAttribute("nickName", user.getNickName());
+					model.addAttribute("pTier", result7);
+					model.addAttribute("pMostPosition", result8);
+					model.addAttribute("pRecord", result9);
 
 				} else {
 
@@ -111,6 +124,46 @@ public class PgameController {
 			return "views/viewFriendInfo";
 
 	}
+	@ResponseBody
+	@RequestMapping("winrate/user")
+	public int getWinrate(Member m) {
+
+
+		List<Member> user = mService.searchUserByNickName(m.getNickName());
+
+		if (user.size() == 0)  {
+			return -1;
+		}
+
+		int result = 0;
+		result = pService.getWinrate(m);
+
+        return result;
+    }
+	@RequestMapping("team")
+	public List<Member>setTeam(Member m) {
+		List<Member> list = mService.searchUser(m.getNickName());
+		return list;
+	}
+//@ResponseBody
+//@RequestMapping("sumWinrate/user")
+//public int sumWinrate(Member m) {
+//	List<Member> list = mService.searchUser(m.getNickName());
+//
+//	if (list.isEmpty()) {
+//		return -1;
+//	}else {
+//
+//		int result = 0;
+//
+//		result = pService.getSumWinrate(m);
+//		for (int i = 0; i < list.size(); i++) {
+//            result = result.Winrate(i);
+//		}
+//	}
+//	return result;
+//	}
 
 
 }
+

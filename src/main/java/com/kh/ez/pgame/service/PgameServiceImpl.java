@@ -1,5 +1,6 @@
 package com.kh.ez.pgame.service;
 
+import com.kh.ez.member.model.vo.Member;
 import com.kh.ez.pgame.model.PgameDto;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,9 +38,10 @@ public class PgameServiceImpl implements PgameService{
 	public int calcInfo4(String userNo) {//70퍼
 		int total = pDao.calcInfo(userNo);
 		int win = pDao.calcInfo2(userNo);
-		
-		return (int)(((double)win / total) * 100);  
+		int winRate = (int)(((double)win / total) * 100);
+		return winRate;
 	}
+
 	@Override
 	public double calcInfo5(String userNo ) {// 3.72
 		int k = pDao.calcInfo5(userNo);
@@ -82,6 +84,9 @@ public class PgameServiceImpl implements PgameService{
 		}
 		return pTier;
 	}
+
+
+
 	public String countPosition(String userNo) {
 		int topCount = pDao.countPosition1(userNo);
 		int jugCount = pDao.countPosition2(userNo);
@@ -120,5 +125,29 @@ public class PgameServiceImpl implements PgameService{
 
 
 		return pDao.calcInfo8(userNo);
+	}
+
+	public int getWinrate(Member m){
+		double total = pDao.getGameCountByNickName(m);
+		double win = pDao.getWinCountByNickName(m);
+
+		if(total!=0) {
+			return (int)((win / total)*100);
+		}else{
+			return 0;
+		}
+	}
+
+	@Override
+	public int getSumWinrate(Member m) {
+		double total = pDao.getGameCountByNickName(m);
+		double win = pDao.getWinCountByNickName(m);
+		double winrate =(int)((win / total)*100);
+
+		if(total!=0) {
+			return (int) winrate;
+		}else{
+			return 0;
+		}
 	}
 }

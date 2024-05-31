@@ -1,5 +1,6 @@
 package com.kh.ez.pgame.service;
 
+import com.kh.ez.member.model.vo.Member;
 import com.kh.ez.pgame.model.PgameDto;
 import com.kh.ez.pgame.model.vo.Pgame;
 
@@ -20,6 +21,10 @@ public interface PgameService {
 	String countPosition(String userNo);
 
     String calcInfo7(String userNo);
+
 	List<PgameDto> calcInfo8(String userNo);
 
+	int getWinrate(Member m);
+
+	int getSumWinrate(Member m);
 }

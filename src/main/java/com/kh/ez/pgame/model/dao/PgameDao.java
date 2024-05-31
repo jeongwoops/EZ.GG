@@ -18,41 +18,37 @@ public class PgameDao {
 
 	public int afterGame(Pgame p) {
 	
-		return sqlSession.insert("pgameMapper.after",p);
+		return sqlSession.insert("pgameMapper.insertPrivateGame",p);
 	}
 	public int calcInfo(String userNo) {
 		
-		return sqlSession.selectOne("pgameMapper.calc1",userNo);
+		return sqlSession.selectOne("pgameMapper.selectPgameCount",userNo);
 		
 	}
 	public int calcInfo2(String userNo) {
 			
-			return sqlSession.selectOne("pgameMapper.calc2",userNo);
+			return sqlSession.selectOne("pgameMapper.selectPgameWinCount",userNo);
 			
 		}
 	public int calcInfo3(String userNo) {
 		
-		return sqlSession.selectOne("pgameMapper.calc3",userNo);
+		return sqlSession.selectOne("pgameMapper.selectPgameLoseCount",userNo);
 		
 	}
-//	public int calcInfo4(String userNo) {
-//		
-//		return sqlSession.selectList("pgameMapper.calc4",userNo);
-//		
-//	}
+//
 	public int calcInfo5(String userNo) {
 		
-		return sqlSession.selectOne("pgameMapper.calc5",userNo);
+		return sqlSession.selectOne("pgameMapper.selectKillCount",userNo);
 		
 	}
 	public int calcInfo6(String userNo) {
 		
-		return sqlSession.selectOne("pgameMapper.calc6",userNo);
+		return sqlSession.selectOne("pgameMapper.selectDeathCount",userNo);
 		
 	}
 	public int calcInfo7(String userNo) {
 			
-			return sqlSession.selectOne("pgameMapper.calc7",userNo);
+			return sqlSession.selectOne("pgameMapper.selectAssistCount",userNo);
 			
 		}
 	public int countPosition1(String userNo){
@@ -72,6 +68,14 @@ public class PgameDao {
 	}
 
 	public List<PgameDto> calcInfo8(String userNo) {
-		return (List)sqlSession.selectList("pgameMapper.pRecord", userNo);
+		return (List)sqlSession.selectList("pgameMapper.selectPgameInfoByUserNo", userNo);
 	}
+
+	public int getGameCountByNickName (Member m){
+		return sqlSession.selectOne("pgameMapper.getGameCountByNickName" , m);
+	}
+	public int getWinCountByNickName (Member m){
+		return sqlSession.selectOne("pgameMapper.getWinCountByNickName" , m);
+	}
+
 }
