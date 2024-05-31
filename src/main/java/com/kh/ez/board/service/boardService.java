@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public interface boardService {
 
 
-    ArrayList<Board> readBoard();
+
 
     int createBoard(Board b);
 

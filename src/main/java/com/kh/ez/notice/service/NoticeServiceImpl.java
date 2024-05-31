@@ -16,18 +16,16 @@ public class NoticeServiceImpl implements NoticeService{
 	private SqlSessionTemplate sqlSession;
 	@Autowired
 	private NoticeDao nDao;
-	
-	@Override
-	public ArrayList<Notice> readNotice() {
-		return nDao.readNotice();
-	}
+
 	@Override
 	public int createNotice(Notice n) {
 		return nDao.createNotice(n);
 	}
 	@Override
 	public int increaseCount(int noticeNo) {
+
 		return nDao.increaseCount(noticeNo);
+
 	}
 	@Override
 	public ArrayList<Notice> noticeList() {

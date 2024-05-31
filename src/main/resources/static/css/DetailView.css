@@ -8,6 +8,9 @@
 .tb-tb-content {
     margin-left: 560px;
     width : 800px;
+    height: 300px;
+    vertical-align: top;
+    word-break: break-word;
 }
 .tb-tb-title {
     width: 70px;

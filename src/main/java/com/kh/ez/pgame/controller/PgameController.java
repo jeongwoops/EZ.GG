@@ -49,7 +49,13 @@ public class PgameController {
 			return "redirect:/";
 		}
 
+	@RequestMapping("afterGame")
+	public String afterGame(Model model) {
 
+		  model.addAttribute("champList",pService.getChampionList());
+		return "views/afterGame";
+
+	}
 	@RequestMapping("privateGameInfo")
 	public String privateGameInfo( Model model, HttpSession session) {
 		

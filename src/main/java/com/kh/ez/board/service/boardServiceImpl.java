@@ -17,10 +17,7 @@ public class boardServiceImpl implements boardService {
     @Autowired
     private boardDao bDao;
 
-    @Override
-    public ArrayList<Board> readBoard() {
-        return bDao.readBoard();
-    }
+
     @Override
     public int createBoard(Board b) {
         return bDao.createBoard(b);

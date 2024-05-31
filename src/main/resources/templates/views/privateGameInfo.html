@@ -18,7 +18,7 @@
     <div class="privategameInfo">
         <div class="mypage-area">
             <div class="basicUserInfo">
-
+                <img src="static/icon/usreIcon.png"/><br>
                 <a id="loginid" th:text="${session.loginUser.nickName}"></a><br><br>
                 <img src="static/icon/tier-example.png" alt="userTier"/><br>
                 <h3>내전티어 : <span th:text="${pTier}" th:style="${pTier == 'Iron' ? 'color:black;' :pTier == 'Bronze' ? 'color:brown;' : pTier == 'Silver' ? 'color:silver;' : pTier == 'Gold' ? 'color:gold;' : pTier=='Platium' ? 'color: #78e7cb;': pTier == 'Emerald' ? 'color:#4dfa8f;': pTier == 'Diamond' ? 'color: #ff00d4;' : pTier == 'Master' ? 'color:#d91dff;' : pTier == 'GrandMaster' ? 'color: red;': 'color: #fffb00;'}"></span></h3>

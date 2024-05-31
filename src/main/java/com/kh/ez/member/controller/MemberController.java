@@ -164,10 +164,7 @@ public class MemberController {
 		return "views/createPrivateGame";
 	}
 	
-	@RequestMapping("afterGame")
-	public String afterGame() {
-		return "views/afterGame";
-	}
+
 	@RequestMapping("createNoti")
 	public String createNotice() {
 		return "views/createNotice";

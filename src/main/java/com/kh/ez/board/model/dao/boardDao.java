@@ -17,16 +17,14 @@ public class boardDao {
         return sqlSession.insert("boardMapper.createBoard",b);
     }
 
-    public ArrayList<Board> readBoard() {
-        return (ArrayList)sqlSession.selectList("boardMapper.readBoard");
-    }
+
 
     public int increaseCount(int boardNo) {
         return sqlSession.update("boardMapper.increaseCount",boardNo);
     }
 
     public ArrayList<Board> boardList() {
-        return (ArrayList)sqlSession.selectList("boardMapper.readBoard");
+        return (ArrayList)sqlSession.selectList("boardMapper.boardList");
     }
 
     public Board boardView(Board b) {

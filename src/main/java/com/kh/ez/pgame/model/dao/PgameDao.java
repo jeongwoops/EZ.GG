@@ -2,6 +2,7 @@ package com.kh.ez.pgame.model.dao;
 
 import com.kh.ez.member.model.vo.Member;
 import com.kh.ez.pgame.model.PgameDto;
+import com.kh.ez.pgame.model.vo.Champion;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -77,5 +78,7 @@ public class PgameDao {
 	public int getWinCountByNickName (Member m){
 		return sqlSession.selectOne("pgameMapper.getWinCountByNickName" , m);
 	}
-
+	public List<Champion> getChampionList(){
+		return sqlSession.selectList("pgameMapper.getChampionList");
+	}
 }

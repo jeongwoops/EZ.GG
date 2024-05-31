@@ -20,22 +20,13 @@ public class NoticeDao {
 	public int createNotice(Notice n) {
 		return sqlSession.insert("noticeMapper.createNotice",n);
 	}
-	
-	/*public int readNotice(Notice n) {
-		return sqlSession.selectOne("noticeMapper.readNotice",n);
-	}*/
-
-
-	public ArrayList<Notice> readNotice() {
-		return (ArrayList)sqlSession.selectList("noticeMapper.readNotice");
-	}
 
 	public int increaseCount(int noticeNo) {
 		return sqlSession.update("noticeMapper.increaseCount",noticeNo);
 	}
 
 	public ArrayList<Notice> noticeList() {
-		return (ArrayList)sqlSession.selectList("noticeMapper.readNotice");
+		return (ArrayList)sqlSession.selectList("noticeMapper.noticeList");
 	}
 
 	public Notice noticeView(Notice n) {

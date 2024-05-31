@@ -26,6 +26,10 @@
 			<result column="PGAME_WINLOSE" property="pGameWinLose" />
 
 		</resultMap>
+	<resultMap id="championResultSet" type="com.kh.ez.pgame.model.vo.Champion">
+		<result column="CHAMPION_NO" property="championNo" />
+		<result column="CHAMPION_NAME" property="championName" />
+	</resultMap>
 	  	
 	  	<insert id="insertPrivateGame">
 	  		INSERT INTO PRIVATEGAME(PGAME_NO,PGAME_TITLE,PGAME_COLOR,PGAME_POSITION,PGAME_CHAMPION,PGAME_K,PGAME_D,PGAME_A,PGAME_WINLOSE,PGAME_MVP,USER_NO)
@@ -91,7 +95,7 @@
 						WHERE USER_NO = #{userNo}
 						ORDER BY PGAME_NO DESC
 					)
-			WHERE ROWNUM &lt; = 10
+			WHERE ROWNUM &lt; = 13
 		</select>
 		<select id="getGameCountByNickName" resultType="_int">
 			SELECT COUNT(*)
@@ -104,10 +108,11 @@
 			FROM PRIVATEGAME JOIN MEMBER USING (USER_NO)
 				WHERE NICKNAME = #{nickName} AND PGAME_WINLOSE=1
 		</select>
-		<select id="">
-			SELECT
-		</select>
 
+		<select id="getChampionList" resultMap="championResultSet">
+			SELECT * FROM CHAMPION
+
+		</select>
 
 
    </mapper>

@@ -9,8 +9,6 @@ public interface NoticeService {
 	
 	
 	int createNotice(Notice n);
-	
-	ArrayList<Notice> readNotice();
 
 	int increaseCount(int noticeNo);
 

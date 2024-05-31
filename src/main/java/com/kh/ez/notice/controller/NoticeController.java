@@ -28,9 +28,8 @@ public class NoticeController {
 	@RequestMapping("notice")
 	public String notice(Model model, HttpSession session) {
 		log.info(">>>>>>>>>>>>>>>>>>>> notice");
-		
-//		int count = nService.increaseCount();
-		ArrayList<Notice> nList = nService.readNotice();
+
+		ArrayList<Notice> nList = nService.noticeList();
 		try{
 			log.info("게시글 개수 : {}", nList);
 			if(nList.size() > 0) {
@@ -53,7 +52,7 @@ public class NoticeController {
 		
 		
 		
-		ArrayList<Notice> nList = nService.readNotice();
+		ArrayList<Notice> nList = nService.noticeList();
 		try{
 			log.info("게시글 개수 : {}", nList);
 			if(nList.size() > 0) {
@@ -97,6 +96,9 @@ public class NoticeController {
 	public String getNoticeDetail(@RequestParam String no, Model model) {
 		Notice n = new Notice();
 		n.setNoticeNo(Integer.parseInt(no));
+
+		// 조회 전 조회수 증가
+		nService.increaseCount(n.getNoticeNo());
 
 		// DB에서 no에 해당하는 공지사항 정보 조회
 		Notice result = nService.noticeView(n);

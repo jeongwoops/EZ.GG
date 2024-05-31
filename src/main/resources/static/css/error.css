@@ -1,0 +1,20 @@
+.errorTitle{
+    text-align:center;
+}
+.errorMsg1{
+    text-align:center;
+    color: red;
+}
+.errorMsg2{
+    text-align:center;
+    color: red;
+}
+.errorMsg3{
+    text-align:center;
+    color: blue;
+    margin-left: 882px;
+    font-size: 20px;
+}
+.banner1{
+    margin-left: 787px;
+}

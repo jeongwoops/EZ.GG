@@ -2,6 +2,7 @@ package com.kh.ez.pgame.service;
 
 import com.kh.ez.member.model.vo.Member;
 import com.kh.ez.pgame.model.PgameDto;
+import com.kh.ez.pgame.model.vo.Champion;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -149,5 +150,10 @@ public class PgameServiceImpl implements PgameService{
 		}else{
 			return 0;
 		}
+	}
+	@Override
+	public List<Champion> getChampionList() {
+		return pDao.getChampionList();
+
 	}
 }

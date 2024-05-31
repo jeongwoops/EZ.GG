@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="static/css/error.css"/>
+    <style></style>
+</head>
+<body>
+<div th:include="views/header"></div>
+
+<a href="/" class="banner1"><img src="static/icon/BEZGG2.png"></a>
+<div>
+    <div class="errorTitle">
+        <h2> 페이지를 표시할 수 없습니다 :( </h2>
+    </div>
+    <br>
+    <div class="errorMsg1">
+        <h3> 예상 원인은 다음과 같습니다. </h3>
+    </div>
+    <div class="errorMsg2">
+        <h4> 1. 요청한 페이지가 없습니다. <br> 2. 페이지에 데이터가 없습니다.</h4>
+    </div>
+    <a href="/" class="errorMsg3">메인페이지로!</a>
+</div>
+<div th:include="views/footer"></div>
+</body>
+</html>

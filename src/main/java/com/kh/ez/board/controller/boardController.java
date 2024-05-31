@@ -29,7 +29,7 @@ public class boardController {
 
 
 //		int count = bService.increaseCount();
-        ArrayList<Board> bList = bService.readBoard();
+        ArrayList<Board> bList = bService.boardList();
         try{
 
             if(bList.size() > 0) {
@@ -53,7 +53,7 @@ public class boardController {
 
 
 
-        ArrayList<Board> bList = bService.readBoard();
+        ArrayList<Board> bList = bService.boardList();
         try{
 
             if(bList.size() > 0) {
@@ -96,6 +96,7 @@ public class boardController {
         Board b = new Board();
         b.setBoardNo(Integer.parseInt(no));
 
+        bService.increaseCount(Integer.parseInt(no));
         // DB에서 no에 해당하는 공지사항 정보 조회
         Board result = bService.boardView(b);
 
