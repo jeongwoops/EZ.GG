@@ -48,4 +48,9 @@ public class MemberServiceImpl implements MemberService{
 	public Member selectUserByUserNo(String userNo) {
 		return mDao.selectUserByUserNo(userNo);
 	}
+
+	@Override
+	public List<Member> searchUserByNickName(String nickName) {
+		return mDao.searchUserByNickName(nickName);
+	}
 }

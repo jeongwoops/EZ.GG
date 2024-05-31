@@ -1,6 +1,5 @@
 package com.kh.ez.member.model.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import com.kh.ez.member.model.vo.Friend;
@@ -26,5 +25,5 @@ public interface MemberService {
 	Member selectUserByUserNo(String userNo);
 
 
-
+    List<Member> searchUserByNickName(String nickName);
 }

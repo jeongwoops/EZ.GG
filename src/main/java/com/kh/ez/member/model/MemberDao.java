@@ -46,6 +46,9 @@ public class MemberDao {
 		return  sqlSession.selectOne("memberMapper.selectUserByUserNo",userNo);
 	}
 
+	public List<Member> searchUserByNickName(String nickName) {
+		return (List) sqlSession.selectList("memberMapper.searchUserByNickName",nickName);
+	}
 }
 	
 

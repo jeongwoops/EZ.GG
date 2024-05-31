@@ -172,6 +172,10 @@ public class MemberController {
 	public String createNotice() {
 		return "views/createNotice";
 	}
+	@RequestMapping("createBo")
+	public String createBoard() {
+		return "views/createBoard";
+	}
 
 }
 
