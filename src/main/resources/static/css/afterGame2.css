@@ -1,0 +1,229 @@
+h2{
+    margin-left: 164px;
+
+    font-weight: 900;
+     font-size : 25px;
+        color: rgb(88, 50, 255);
+        padding : 10px;
+}
+.insert-result {
+    display:center;
+    width: 100%;
+    margin-left : 750px;
+    margin-top : 80px;
+}
+ input::placeholder {
+    color: rgb(201, 200, 200);
+    font-style: italic;
+  }
+  .inp-kda{
+        width: 99px;
+        margin-top: 20px;
+        font-size: 20px;
+
+        border-radius: 5px;
+        height: 36px;
+            margin-left: 37px;
+  }
+  .sel-chp{
+      width: 158px;
+      margin-top: 20px;
+      font-size: 20px;
+border-top-color: rgb(35 179 125);
+    border-top-width: 2px;
+    border-left-width: 2px;
+    border-left-color: rgb(35 179 125);
+    border-right-width: 2px;
+    border-bottom-width: 2px;
+      border-radius: 5px;
+      height: 36px;
+          margin-left: 37px;
+  }
+  .sel-posi{
+      width: 380px;
+      margin-top: 20px;
+      font-size: 20px;
+border-top-color: rgb(35 179 125);
+    border-top-width: 2px;
+    border-left-width: 2px;
+    border-left-color: rgb(35 179 125);
+    border-right-width: 2px;
+    border-bottom-width: 2px;
+      border-radius: 5px;
+      height: 36px;
+          margin-left: 37px;
+  }
+  .sel-col{
+      width: 380px;
+      margin-top: 20px;
+      font-size: 20px;
+border-top-color: rgb(35 179 125);
+    border-top-width: 2px;
+    border-left-width: 2px;
+    border-left-color: rgb(35 179 125);
+    border-right-width: 2px;
+    border-bottom-width: 2px;
+      border-radius: 5px;
+      height: 36px;
+          margin-left: 37px;
+  }
+  .inp-title{
+      width: 380px;
+      margin-top: 20px;
+      font-size: 20px;
+
+      border-radius: 5px;
+      height: 36px;
+          margin-left: 37px;
+  }
+  .sel-resu{
+      width: 380px;
+      margin-top: 20px;
+      font-size: 20px;
+border-top-color: rgb(35 179 125);
+    border-top-width: 2px;
+    border-left-width: 2px;
+    border-left-color: rgb(35 179 125);
+    border-right-width: 2px;
+    border-bottom-width: 2px;
+      border-radius: 5px;
+      height: 36px;
+          margin-left: 37px;
+  }
+  .sel-mvp{
+     width: 380px;
+     margin-top: 20px;
+     font-size: 20px;
+border-top-color: rgb(35 179 125);
+    border-top-width: 2px;
+    border-left-width: 2px;
+    border-left-color: rgb(35 179 125);
+    border-right-width: 2px;
+    border-bottom-width: 2px;
+     border-radius: 5px;
+     height: 36px;
+         margin-left: 37px;
+  }
+  #btn-submit{
+   margin-top: 20px;
+      font-size: 20px;
+    margin-left: 37px;
+      border-radius: 5px;
+      height: 36px;
+      width: 100px;
+      background-color: rgb(43, 92, 184);
+      color: white;
+  }
+  #search {
+
+          width: 180px;
+          margin-top: 20px;
+          font-size: 20px;
+
+          border-radius: 5px;
+          height: 36px;
+            margin-left: 37px;
+  }
+  #inline-area{
+    display: flex;
+  }
+#btn-submit{
+     width: 220px;
+     height: 40px;
+     background-color: white;
+     color: rgb(43, 92, 184);
+     margin-left: 121px;
+     margin-top: 30px;
+     font-weight: 900;
+     border-radius: 5px;
+     border-color: rgb(43, 92, 184);
+
+}
+#btn-submit:hover {
+background-color: #F7F7F7;
+color: black;
+cursor: pointer;
+}
+
+/****************************************************************/
+/* 현재 선택된 검색어 */
+.autocomplete > div.active {
+  background: #e0e5f6;
+  color: #000;
+}
+
+/* -------------------------- */
+
+.autocomplete > div {
+  background: #f1f3f499;
+  padding: .2rem .6rem;
+}
+.sel-col > option {
+    background: #ffcccc;
+
+}
+.sel-posi > option {
+     background: #ffcccc;
+
+}
+.sel-chp  > option  {
+     background: #ffcccc;
+
+}
+.sel-resu > option {
+     background: #ffcccc;
+
+}
+.sel-mvp > option {
+    background: #ffcccc;
+
+}
+
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  word-break: break-all;
+  font-family: Pretendard;
+}
+
+
+input {
+    width: 200px;
+    border-radius: 5px;
+    border-color: rgb(51, 252, 185);
+    height: 30px;
+     background: #fff;
+}
+select {
+ width: 200px;
+    border-radius: 5px;
+    border-color: rgb(51, 252, 185);
+    height: 30px;
+     background: #fff;
+}
+
+input::placeholder {
+  font-size: 1rem;
+}
+select::placeholder {
+  font-size: 1rem;
+}
+body {
+  background: #f7f8fc;
+  justify-content: center;
+  align-items: center;
+
+}
+
+mark {
+  background: #febf0090;
+}
+
+p {
+  opacity: .8;
+  font-size: 15px;
+}

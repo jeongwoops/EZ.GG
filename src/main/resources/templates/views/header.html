@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EZ.GG</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+
+
    <style></style>
    <link rel="stylesheet" href="static/css/header.css"/>
 </head>
@@ -18,10 +23,12 @@
         <div class="abc-area" th:if="${ session.loginUser == null }">
               <div>
                   <a href="/"><img src="static/icon/EZ.GG2.png"></a>
+
               </div>
               <div class="sign">
                   <a href="loginPage">| 로그인 |</a>
                   <a href="enrollForm">회원가입 |</a>
+
               </div>
         </div> 
         <div class="abc-area" th:if="${ session.loginUser != null }">
@@ -31,19 +38,26 @@
             <div class="sign">
                 <a href="logout">| 로그아웃 |</a>
                 <a href="myPage">마이페이지 |</a>
-            	<label>
-                	<p class="label-txt" th:text=" ${session.loginUser.nickName} +'님 환영합니다'"></p> 			
-              	</label>	
-                   <div th:include="views/modal"></div>
+                <div class="container">
+                    <label>
+                        <p class="label-txt" th:text=" ${session.loginUser.nickName}+'님 안녕하세요!'"></p>
+                    </label>
+
+
+
+                </div>
+                <div th:include="views/modal" id="btn-modal" style="display:none;"></div>
+
             </div>
         </div>
         <div id="go-area">
           <a href="/" class="go" id="go-home">홈</a>
           <a href="notice" class="go" id="go-notice">공지사항</a>
-          <a href="myPage" class="go" id="go-myPage">마이페이지</a>
+          <a href="board" class="go" id="go-board">자유게시판</a>
           <a href="privateGameInfo" class="go" id="go-pInfo">내전정보</a>
           <a href="createPrivateGame" class="go" id="go-createPgame">새게임</a>
-          <a href="afterGame" class="go" id="go-afterGame">내전결과창</a> 
+          <a href="afterGame" class="go" id="go-afterGame">내전결과창</a>
+
         </div>
             
   </div>

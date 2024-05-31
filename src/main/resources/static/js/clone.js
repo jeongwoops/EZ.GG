@@ -131,7 +131,7 @@ function UserA() {
 
     window.addEventListener("keydown", (event)=>{
         const direction = event.key.replace("Arrow","");
-        snake.changeDirection(direction);
+        // snake.changeDirection(direction);
     });
 
     document.getElementById("start-btn").addEventListener("click", startGame);

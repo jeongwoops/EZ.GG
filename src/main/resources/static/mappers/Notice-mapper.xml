@@ -15,7 +15,7 @@
   	
   	<insert id="createNotice" >
   		insert into notice(NOTICE_NO,WRITER,WRITE_DATE,NOTICE_TITLE,NOTICE_CONTENT)
-  				values(SEQ_NNO.NEXTVAL,#{writer},#{writeDate},#{noticeTitle},#{noticeContent})
+  				values(SEQ_NNO.NEXTVAL,#{writer},SYSDATE,#{noticeTitle},#{noticeContent})
   	</insert>
   	
   	<!-- <select id="readNotice" resultMap ="noticeResultSet">
@@ -31,9 +31,21 @@
 			
 	</update>
 	<select id="readNotice" resultMap="noticeResultSet">
-		SELECT NOTICE_NO,WRITER,WRITE_DATE,NOTICE_TITLE,NOTICE_CONTENT
+		SELECT NOTICE_NO,WRITER,TO_CHAR(WRITE_DATE, 'YYYY-MM-DD') "WRITE_DATE",NOTICE_TITLE,NOTICE_CONTENT
   				FROM NOTICE 
   				
 				ORDER BY NOTICE_NO DESC 
+	</select>
+	<select id="noticeList" resultMap="noticeResultSet">
+		SELECT NOTICE_NO,WRITER,TO_CHAR(WRITE_DATE, 'YYYY-MM-DD') "WRITE_DATE",NOTICE_TITLE,NOTICE_CONTENT
+		FROM NOTICE
+
+		ORDER BY NOTICE_NO DESC
+	</select>
+	<select id="noticeView" resultMap="noticeResultSet">
+		SELECT NOTICE_NO,WRITER,TO_CHAR(WRITE_DATE, 'YYYY-MM-DD') "WRITE_DATE",NOTICE_TITLE,NOTICE_CONTENT,NOTICE_COUNT
+		FROM NOTICE
+		WHERE NOTICE_NO = #{noticeNo}
+		ORDER BY NOTICE_NO DESC
 	</select>
   </mapper>

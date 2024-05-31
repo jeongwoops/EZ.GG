@@ -1,0 +1,47 @@
+#writeNotice{
+    margin-left: 1214px;
+    color: rgb(43, 92, 184);
+    font-weight: 900;
+    text-decoration: none;
+    padding: 0px;
+}
+.list-area{
+       width: 990px;
+      border: 1px solid ;
+     border-collapse: collapse;
+
+       padding: 0px;
+}
+thead {
+        height: 40px;
+        background-color: #ff7070;
+        border: 1px solid #F7F7F7;
+         border-collapse: collapse;
+}
+tbody {
+        border: 1px solid #F7F7F7;
+         border-collapse: collapse;
+}
+td {
+   color:#665959; font-weight: 700;
+   text-align: center;
+}
+ #tb-board{
+        margin-top: 4px;
+        width: 700px;
+}
+    #tb-notice{
+      width: 700px;
+         border: 1px solid pink;
+}
+tr {
+    height: 35px;
+}
+th{
+    color: white;
+}
+.aa:hover{
+background-color: #ff7070;
+color: white;
+
+}

@@ -5,31 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>공지사항</title>
 </head>
-<link rel="stylesheet" href="static/css/main.css"/>
+<link rel="stylesheet" href="static/css/DetailView.css"/>
+<style></style>
 <body>
     <div th:include="views/header"></div>
     <h2 align="center">공지사항 상세보기</h2>
     <br>
 
-        <form action="noticeView" method="post" >
-		    <table align="center" class="list-area" border="1">
-		        <tr>
-		        	<th>글번호</th>
-		        	<td>1</td>		        
-		        </tr>
-		        <tr>
-		        	<th>제목</th>
-		        	<td>제목입니다@@</td>		        
-		        </tr>
-		        <tr>
-		        	<th>작성자</th>
-		        	<td>작성자@@</td>	        
-		        </tr>
-		    </table>
-	     </form>   
-    <div>
-    	 <a href="createNoti">| 글쓰기 |</a>
-    </div>
+		<table class="tb-tb-notice">
+
+			<tr th:if="${n == null }">
+				<td colspan="6">조회된 게시글이 없습니다.</td>
+			</tr>
+			<th:block th:if="${ n != null }">
+				<tr>
+						<th class="tb-tb-title">제목</th>
+						<td  colspan="4" th:text="${n.noticeTitle}"></td>
+						<th class="tb-tb-no">글번호</th>
+						<td th:text="${n.noticeNo}"></td>
+					</tr>
+
+				<tr>
+					<th class="tb-tb-writer">작성자</th>
+					<td th:text="${n.Writer}"></td>
+
+					<th class="tb-tb-date">작성일</th>
+					<td colspan="2" th:text="${n.WriteDate}"></td>
+					<th class="tb-tb-count">조회수</th>
+					<td th:text="${n.noticeCount}"></td>
+				</tr>
+
+				<tr>
+					<th class="tb-tb-contents">내용</th>
+					<td colspan="7" th:text="${n.noticeContent}" class="tb-tb-content"></td>
+				</tr>
+
+			</th:block>
+		</table>
+
      <div th:include="views/footer"></div>
 </body>
 </html>

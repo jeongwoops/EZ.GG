@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>공지사항</title>
+    <link rel="stylesheet" href="static/css/main.css"/>
 </head>
-<link rel="stylesheet" href="static/css/main.css"/>
 <body>
     <div th:include="views/header"></div>
     <h2 align="center">공지사항</h2>
@@ -13,13 +13,19 @@
 
     <div id="create-notice">
 	    <form action="createNotice" method="post">
-	    	<input type="text" placeholder="작성자" name="writer"/>
-	    	<input type="text" placeholder="작성일" name="writeDate"/>
-	    	<input type="text" placeholder="제목" name="noticeTitle"/>
-	    	<input type="text" placeholder="내용" name="noticeContent"/>
-	    	 <button type="submit" id="btn-createNoti"><span>글쓰기</span></button><br><br>
+	    	<input type="text" class="ip-content" placeholder="작성자"  th:value="'작성자 : '+${session.loginUser.nickName}" readonly/><br>
+	    	<input type="date" id='currentDatetime' class="ip-content" placeholder="작성일" name="writeDate" readonly/><br>
+	    	<input type="text" class="ip-content" placeholder="제목" name="noticeTitle" required/><br>
+            <textarea type="text" id="inp-content" placeholder="내용" name="noticeContent" required></textarea><br>
+	    	 <button type="submit" id="noti-submit"><span>등록</span></button><br><br>
 	    </form>
     </div>
      <div th:include="views/footer"></div>
+
+    <script>
+        onload = () => {
+            document.getElementById('currentDatetime').value= new Date().toISOString().slice(0, 10);
+        }
+    </script>
 </body>
 </html>

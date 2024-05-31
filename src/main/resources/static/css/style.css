@@ -23,13 +23,11 @@ body {
     background-color: #ffffff;
     padding: 2rem;
     border-radius: 1rem;
+    border: 1px;
     box-shadow: 0 0 1rem rgba(0,0,0,.1);
     text-align: center;
 }
-h1 {
-    font-size : 2rem;
-    margin-bottom: 1rem;
-}
+
 canvas {
     display: block;
     margin: 0 auto;

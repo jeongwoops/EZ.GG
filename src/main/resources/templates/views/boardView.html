@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>공지사항</title>
+  <link rel="stylesheet" href="static/css/DetailView.css"/>
+  <style>
+
+  </style>
+</head>
+<body>
+<div th:include="views/header"></div>
+
+
+
+<h2 align="center">자유게시판 상세보기</h2>
+  <br>
+    <table class="tb-tb-notice">
+      <tr th:if="${b == null }">
+        <td colspan="6">조회된 게시글이 없습니다.</td>
+      </tr>
+      <th:block th:if="${ b != null }">
+        <tr>
+
+          <th class="tb-tb-title">제목</th>
+          <td class="contents-color"colspan="4" th:text="${b.boardTitle}"></td>
+
+          <th class="tb-tb-no">글번호</th>
+          <td class="contents-color" th:text="${b.boardNo}"></td>
+        </tr>
+        <tr>
+          <th class="tb-tb-writer">작성자</th>
+          <td class="contents-color" colspan="2" th:text="${b.boardWriter}"></td>
+
+          <th class="tb-tb-date">작성일</th>
+          <td class="contents-color" th:text="${b.boardWriteDate}"></td>
+          <th class="tb-tb-count">조회수</th>
+          <td class="contents-color" th:text="${b.boardCount}"></td>
+        </tr>
+        <tr>
+          <th class="tb-tb-contents">내용</th>
+          <td id="contents-color" colspan="7" th:text="${b.boardContent}" class="tb-tb-content"></td>
+        </tr>
+      </th:block>
+    </table>
+
+
+
+
+
+
+<div th:include="views/footer"></div>
+</body>
+</html>

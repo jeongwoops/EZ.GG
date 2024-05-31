@@ -2,8 +2,8 @@
  .modal{
             position:absolute;
             display:none;
-            
-            justify-content: center;
+            z-index: 1;
+            justify-content: right;
             top:210px;
             right:0;
             border-color: grey;

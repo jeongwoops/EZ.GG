@@ -3,6 +3,11 @@ hr {
   height:1px;
   border:0;
 }
+h1{
+   font-size : 25px;
+    color: rgb(88, 50, 255);
+    padding : 10px;
+}
 header {
   text-align: center;
   margin: 0 auto ;
@@ -110,8 +115,9 @@ body {
     text-align: center;
 
 }
-#basicUserInfo{
+.basicUserInfo{
     font-size: 20px;
+    margin-left: 400px;
 }
 .info-posi{
     font-size: 25px;
@@ -124,14 +130,19 @@ font-size: 25px;
    font-weight: bolder;
 
 }
-#basicUserRecord{
+.basicUserRecord{
 
-    width: 800px;
+    width: 600px;
     text-align:center;
     font-weight: 600;
     color: white;
-
+    margin-right: 400px;
     border-radius:3px;
+
+}
+.basicUserRecord tr {
+      height:53px;
+      width: 500px;
 }
 .mypage-area {
      justify-content: space-evenly;
@@ -139,5 +150,20 @@ font-size: 25px;
       width: 100%;
 }
 #privategameInfo{
-    margin-top : 150px;
+    margin-top : 80px;
+}
+html {
+  font-family: "helvetica neue", helvetica, arial, sans-serif;
+}
+
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  border: 1px solid white;
+}
+.label-text{
+        color: #ff7070;
+        font-weight: 700;
+        font-size: 20px;
+
 }

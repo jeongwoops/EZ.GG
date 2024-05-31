@@ -6,7 +6,8 @@
     <title>사설게임 생성</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
-    <link rel="stylesheet" href="static/css/myPage.css"/>
+    <link rel="stylesheet" href="static/css/createPrivateGame.css"/>
+
     
     <script src="static/js/select.js"></script>
    
@@ -30,30 +31,30 @@
                 <tbody>
                   <tr>
                     <th scope="row">TOP</th>
-                    <td><input type="text" name="T1top"/></td>
-                    <td><input type="text" name="T2top"/></td>
+                    <td><input type="text" class="inp-user t1" name="T1top"/></td>
+                    <td><input type="text" class="inp-user t2" name="T2top"/></td>
                    
                   </tr>
                   <tr>
                     <th scope="row">JUG</th>
-                    <td><input type="text" name="T1jug"/></td>
-                    <td><input type="text" name="T2jug"/></td>
+                    <td><input type="text" class="inp-user t1" name="T1jug"/></td>
+                    <td><input type="text" class="inp-user t2" name="T2jug"/></td>
                     
                   </tr>
                   <tr>
                     <th scope="row">MID</th>
-                    <td><input type="text" name="T1mid"/></td>
-                    <td><input type="text" name="T2mid"/></td>
+                    <td><input type="text" class="inp-user t1" name="T1mid"/></td>
+                    <td><input type="text" class="inp-user t2" name="T2mid"/></td>
                   </tr>
                   <tr>
                     <th scope="row">ADC</th>
-                    <td><input type="text" name="T1adc"/></td>
-                    <td><input type="text" name="T2adc"/></td>
+                    <td><input type="text" class="inp-user t1" name="T1adc"/></td>
+                    <td><input type="text" class="inp-user t2" name="T2adc"/></td>
                   </tr>
                   <tr>
                     <th scope="row">SUP</th>
-                    <td><input type="text" name="T1sup"/></td>
-                    <td><input type="text" name="T2sup"/></td>
+                    <td><input type="text" class="inp-user t1" name="T1sup"/></td>
+                    <td><input type="text" class="inp-user t2" name="T2sup"/></td>
                   </tr>
                 </tbody>
               </table>
@@ -90,6 +91,5 @@
      
 
     <div th:include="views/footer"></div>
-    
 </body>
 </html>

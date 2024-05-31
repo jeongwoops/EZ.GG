@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="static/css/notice.css">
+    <style>
+    </style>
+</head>
+<body>
+<form action="readBoard" method="post" >
+    <table align="center" class="list-area" id="tb-notice">
+        <thead>
+        <tr>
+            <th width="70">글번호</th>
+            <th width="300">제목</th></a>
+            <th width="100">작성자</th>
+            <th width="50">조회수</th>
+            <th width="100">작성일</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr th:if="${ list == null }">
+            <td colspan="6">조회된 게시글이 없습니다.</td>
+        </tr>
+        <th:block th:if="${ list != null && !list.isEmpty() }">
+            <tr th:each="b : ${list}">
+                <td th:text="${b.getBoardNo()}"></td>
+                <td class="aa">
+                    <a style="color:#665959; font-weight: 700; text-decoration:none;" th:href="@{${'boardDetail?no=' + b.BoardNo}}" th:text="${b.getBoardTitle()}"></a>
+                </td>
+                <td th:text="${b.getBoardWriter()}"></td>
+                <td th:text="${b.getBoardCount()}"></td>
+                <td th:text="${b.getBoardWriteDate()}"></td>
+            </tr>
+        </th:block>
+        </tbody>
+    </table>
+</form>
+</body>
+</html>

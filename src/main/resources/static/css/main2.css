@@ -1,40 +1,22 @@
 #notice{
-    color: red;
     margin-bottom: 100px;
     margin: auto;
-    
+   }
+   h2 {
+    color : red;
    }
    .notice-area{
     width: 100%;
     display: flex;
     text-align: center;
-    color: red;
-    justify-content: space-evenly;
-  
+    justify-content: center;
    }
-   
    #tb-notice{
-    color: black;
-    width: 600px;
-    background-color: rgb(199, 248, 255);
-   
-    font-size: 18px;
-    
+    width: 700px;
     }
-    
-    #tb-championUser{
-        background-color: rgb(121, 102, 231);
-        color:white;
-        width: 600px;
-        font-size: 18px;
-        
-    }
-    #championUser{
-        float: right;
-        text-align: center;
-       
-      
-    }
+     #tb-board{
+      width: 700px;
+      }
     .board{
         margin: 10px auto;
         width: 100%;

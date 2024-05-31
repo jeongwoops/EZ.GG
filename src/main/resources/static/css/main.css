@@ -45,3 +45,43 @@
  #notice {
     margin:0 auto;
 }
+.create-notice{
+  display: center;
+  margin:0 auto;
+  width: 500px;
+}
+.ip-content{
+  margin-left: 700px;
+  width: 500px;
+  height: 25px;
+  border-color: #ff7070;
+  padding: 5px;
+background-color:#ff7070;
+color:white;
+font-weight:800; }
+
+#inp-content{
+  margin-left: 700px;
+  height: 500px;
+  padding: 5px;
+  width:500px;
+  border: 1px solid;
+  border-color: #ff7070;
+
+
+}
+#noti-submit{
+     width: 220px;
+     height: 40px;
+     background-color: white;
+     color: rgb(43, 92, 184);
+     margin-left: 850px;
+     font-weight: 900;
+     border-radius: 5px;
+     border-color: rgb(43, 92, 184);
+}
+#noti-submit:hover {
+background-color: #F7F7F7;
+color: black;
+cursor: pointer;
+}

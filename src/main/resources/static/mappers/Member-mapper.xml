@@ -26,6 +26,12 @@
 	  							WHERE NICKNAME LIKE '%' || #{nickName} || '%'
 	  							
   		</select>
+		<select id="searchUserByNickName" resultMap="memberResultSet">
+								SELECT USER_NO, NICKNAME FROM MEMBER
+								WHERE NICKNAME = #{nickName}
+
+		</select>
+
   		<insert id="addFriend">
   			INSERT INTO FRIEND
   				VALUES(#{userNo},#{friendNo},'Y')

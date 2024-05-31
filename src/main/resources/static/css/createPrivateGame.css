@@ -1,0 +1,40 @@
+body {
+    display: center;
+
+}
+h3 {
+    font-size : 25px;
+    color: rgb(88, 50, 255);
+    padding : 10px;
+}
+#create-area{
+    margin-left : 700px;
+    padding : 20px;
+}
+#create-team{
+    padding : 40px;
+}
+input {
+    width: 200px;
+    border-radius: 5px;
+    border-color: rgb(51, 252, 185);
+    height: 30px;
+}
+
+.not-found {
+    border-color: red;
+}
+
+#forecast{
+     padding : 40px;
+}
+.game-container {
+margin-right: 300px;
+width: 400px;
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 1rem;
+    border: 1px;
+    box-shadow: 0 0 1rem rgba(0,0,0,.1);
+    text-align: center;
+}

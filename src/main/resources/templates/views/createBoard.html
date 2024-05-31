@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>공지사항</title>
+    <link rel="stylesheet" href="static/css/main.css"/>
+</head>
+<body>
+<div th:include="views/header"></div>
+<h2 align="center">자유게시판</h2>
+<br>
+
+<div id="create-notice">
+    <form action="createBoard" method="post">
+        <input type="text" class="ip-content"placeholder="작성자" name="boardWriter" th:value="'작성자 : '+${session.loginUser.nickName}" readonly/><br>
+        <input type="text" class="ip-content"placeholder="작성일" name="boardWriteDate" required/><br>
+        <input type="text" class="ip-content"placeholder="제목" name="boardTitle" required/><br>
+        <textarea type="text" id="inp-content"placeholder="내용" name="boardContent" required></textarea><br>
+        <button type="submit" id="noti-submit"><span>등록</span></button><br><br>
+    </form>
+</div>
+<div th:include="views/footer"></div>
+</body>
+</html>

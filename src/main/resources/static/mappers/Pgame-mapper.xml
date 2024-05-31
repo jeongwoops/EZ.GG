@@ -27,35 +27,35 @@
 
 		</resultMap>
 	  	
-	  	<insert id="after">
+	  	<insert id="insertPrivateGame">
 	  		INSERT INTO PRIVATEGAME(PGAME_NO,PGAME_TITLE,PGAME_COLOR,PGAME_POSITION,PGAME_CHAMPION,PGAME_K,PGAME_D,PGAME_A,PGAME_WINLOSE,PGAME_MVP,USER_NO)
 	  		values(SEQ_PNO.NEXTVAL,#{pGameTitle},#{pGameColor},#{pGamePosition},#{pGameChampion},#{pGameK},#{pGameD},#{pGameA},#{pGameWinLose},#{pGameMvp},#{userNo})
 	  	</insert>
-  		<select id="calc1" resultType="_int">
+  		<select id="selectPgameCount" resultType="_int">
   			SELECT COUNT(*) AS "PCOUNT"
   			FROM PRIVATEGAME 
   			WHERE USER_NO= #{userNo}
   		</select>
-  		<select id="calc2" resultType="_int">
+  		<select id="selectPgameWinCount" resultType="_int">
   			SELECT COUNT(*) AS "PGAME_WIN"
   			FROM PRIVATEGAME 
   			WHERE USER_NO= #{userNo} AND PGAME_WINLOSE=1
   		</select>
-  		<select id="calc3" resultType="_int">
+  		<select id="selectPgameLoseCount" resultType="_int">
   			SELECT COUNT(*) AS "PGAME_LOSE"
   			FROM PRIVATEGAME 
   			WHERE USER_NO= #{userNo} AND PGAME_WINLOSE=2
   		</select>	
 
-  		<select id="calc5" resultType="_int">
+  		<select id="selectKillCount" resultType="_int">
   			SELECT NVL(SUM(PGAME_K), 0) FROM PRIVATEGAME
   				WHERE USER_NO= #{userNo}
   		</select>
-  		<select id="calc6" resultType="_int">
+  		<select id="selectDeathCount" resultType="_int">
   			SELECT NVL(SUM(PGAME_D), 0) FROM PRIVATEGAME
   				WHERE USER_NO= #{userNo}
   		</select>
-  		<select id="calc7" resultType="_int">
+  		<select id="selectAssistCount" resultType="_int">
   			SELECT NVL(SUM(PGAME_A), 0) FROM PRIVATEGAME
   				WHERE USER_NO= #{userNo}
   		</select>
@@ -84,7 +84,7 @@
 			WHERE USER_NO = #{userNo} AND PGAME_POSITION=5
 		</select>
 
-  		<select id="pRecord" resultMap="pgameDtoResultSet">
+  		<select id="selectPgameInfoByUserNo" resultMap="pgameDtoResultSet">
 			SELECT PGAME_NO, NICKNAME, PGAME_WINLOSE , PGAME_K, PGAME_D,PGAME_A
 			FROM 	(   SELECT PGAME_NO,NICKNAME,PGAME_WINLOSE, PGAME_K, PGAME_D,PGAME_A
 						FROM PRIVATEGAME JOIN MEMBER USING (USER_NO)
@@ -93,13 +93,21 @@
 					)
 			WHERE ROWNUM &lt; = 10
 		</select>
+		<select id="getGameCountByNickName" resultType="_int">
+			SELECT COUNT(*)
+			FROM PRIVATEGAME JOIN MEMBER USING (USER_NO)
+			WHERE NICKNAME = #{nickName}
+		</select>
 
-  	
- <!--
-  	<select id="selectPgame" resultMap ="pgameResultSet">
-  			SELECT PGAME_TITLE, PGAME_COLOR, PGAME_POSITION, PGAME_K, PGAME_D, PGAME_A, PGAME_WINLOSE, PGAME_MVP
-  			FROM PRIVATEGAME JOIN MEMBER USING (USER_NO)
-			WHERE NICKNAME= ?
-  	</select>
- -->
+		<select id="getWinCountByNickName" resultType="_int">
+			SELECT COUNT(*) AS "PGAME_WIN"
+			FROM PRIVATEGAME JOIN MEMBER USING (USER_NO)
+				WHERE NICKNAME = #{nickName} AND PGAME_WINLOSE=1
+		</select>
+		<select id="">
+			SELECT
+		</select>
+
+
+
    </mapper>

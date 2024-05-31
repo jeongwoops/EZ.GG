@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>자유게시판</title>
+  <link rel="stylesheet" href="static/css/notice.css"/>
+  <style>
+  </style>
+</head>
+
+<body>
+<div th:include="views/header"></div>
+
+<h2 align="center">자유게시판</h2>
+<br>
+
+<div th:include="views/boardList"></div>
+<div>
+  <br><a href="createBo" id="writeNotice">| 글쓰기 |</a>
+</div>
+<div th:include="views/footer"></div>
+</body>
+</html>

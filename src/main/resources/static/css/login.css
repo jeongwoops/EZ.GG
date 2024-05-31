@@ -4,7 +4,7 @@
             margin-top: 280px;
             min-height: 450px;
         }
-       
+
         .input-login{
             display: inline-flex;
             justify-content: center;
@@ -18,7 +18,7 @@
             border-radius: 10px;
             border-color: rgb(51, 252, 185);
         }
- 
+
         #btn-login{
             width: 60px;
             height: 35px;
@@ -43,3 +43,4 @@
         h3 {
             text-align: center;
         }
+

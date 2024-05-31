@@ -4,9 +4,6 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style></style>
-<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="static/css/modal.css">
 
 </head>
@@ -16,7 +13,7 @@
 			        <div class="modal_body">
 			        	<input type="hidden" th:value="${session.loginUser.userNo}" name="userNo" />
 			       
-			            <h2>친구목록</h2> <input type="text" placeholder="닉네임" th:value="${nickName}" name="nickName"/><button type="button" onclick="searchUser()">검색</button>
+			            <h3>친구목록</h3> <input type="text" placeholder="닉네임" th:value="${nickName}" name="nickName"/><button type="button" onclick="searchUser()">검색</button>
 			     
 			           
 			            <hr>
@@ -31,16 +28,14 @@
 			        </div>
 			    </div>
 			    <br>
+
 			    <button class="btn-open-modal"> <img src="static/icon/person-arms-up.svg"/> </button>
-			    
+
     <script>
         const modal = document.querySelector('.modal');
         const btnOpenModal=document.querySelector('.btn-open-modal');
-       
-        onload = () => {
-        	viewFriends();
-        }
-        
+
+
         
 
         btnOpenModal.addEventListener("click", ()=>{
@@ -118,8 +113,9 @@
 						+ "</li>";
 						
 					}
-				
+					if ($("#friendList")!= null ){
 					$("#friendList").html(friendList);
+					}
 				}
     		},
     		error: (error) => {
@@ -148,7 +144,7 @@
         	})
         }
 		 function viewFriendInfo(no) {
-        	alert('접속');
+        	alert('[내친구] 정보 접속');
 
         	location.href = 'viewFriendInfo?friendNo='+no;
 
