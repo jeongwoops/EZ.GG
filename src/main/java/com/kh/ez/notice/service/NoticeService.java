@@ -13,9 +13,9 @@ public interface NoticeService {
 	ArrayList<Notice> readNotice();
 
 	int increaseCount(int noticeNo);
-	
-	
-	
-	
 
+	ArrayList<Notice> noticeList();
+
+
+	Notice noticeView(Notice n);
 }

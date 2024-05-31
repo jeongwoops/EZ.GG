@@ -29,6 +29,15 @@ public class NoticeServiceImpl implements NoticeService{
 	public int increaseCount(int noticeNo) {
 		return nDao.increaseCount(noticeNo);
 	}
-	
+	@Override
+	public ArrayList<Notice> noticeList() {
+		ArrayList<Notice> noticeList = nDao.noticeList();
+		return noticeList;
+		}
+	@Override
+	public Notice noticeView(Notice n) {
+		return nDao.noticeView(n);
+	}
+
 	
 }

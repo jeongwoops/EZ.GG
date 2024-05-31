@@ -34,8 +34,11 @@ public class NoticeDao {
 		return sqlSession.update("noticeMapper.increaseCount",noticeNo);
 	}
 
+	public ArrayList<Notice> noticeList() {
+		return (ArrayList)sqlSession.selectList("noticeMapper.readNotice");
+	}
 
-	
-	
-
+	public Notice noticeView(Notice n) {
+		return sqlSession.selectOne("noticeMapper.noticeView", n);
+	}
 }
