@@ -28,6 +28,7 @@ const getWinRate = (name, value) => {
                 $(`input[name=${name}]`).attr('rate', result);
                 $(`input[name=${name}]`).removeClass('not-found');
                 $(`input[name=${name}]`).removeAttr('title');
+
             } else {
                 $(`input[name=${name}]`).attr('rate', 0);
                 $(`input[name=${name}]`).addClass('not-found');
@@ -66,6 +67,7 @@ const showPieChart = () => {
     })
 
     console.log(x, y)
+
 
     pieChart = new Chart(pieCtx, {
         type: 'pie',

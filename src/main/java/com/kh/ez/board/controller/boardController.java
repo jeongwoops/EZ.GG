@@ -3,6 +3,7 @@ package com.kh.ez.board.controller;
 import com.kh.ez.board.model.vo.Board;
 
 import com.kh.ez.board.service.boardService;
+import com.kh.ez.member.model.vo.Member;
 import com.kh.ez.notice.model.vo.Notice;
 import com.kh.ez.notice.service.NoticeService;
 import jakarta.servlet.http.HttpSession;
@@ -71,7 +72,9 @@ public class boardController {
     }
     @RequestMapping("createBoard")
     public String readboard(Board b, Model model, HttpSession session) {
-
+        log.info(b.toString());
+        String nickName = ((Member)session.getAttribute("loginUser")).getNickName();
+        b.setBoardWriter(nickName);
         int result = bService.createBoard(b);
 
         try{

@@ -85,7 +85,7 @@ public class NoticeController {
 		} catch(Exception e) {
 			session.setAttribute("msg", " 예외 발생");
 		}
-		return "redirect:/";
+		return "redirect:/notice";
 	}
 	@RequestMapping("noticeView")
 	public String noticeView() {

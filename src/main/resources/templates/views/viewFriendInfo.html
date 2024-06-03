@@ -20,10 +20,10 @@
 
 
             <p class="label-text" th:text="${nickName}"></p>
-            <img src="static/icon/tier-example.png" alt="userTier"/><br>
+
             <h3>내전티어 : <span th:text="${pTier}" th:style="${pTier == 'Iron' ? 'color:black;' :pTier == 'Bronze' ? 'color:brown;' : pTier == 'Silver' ? 'color:silver;' : pTier == 'Gold' ? 'color:gold;' : pTier=='Platium' ? 'color: #78e7cb;': pTier == 'Emerald' ? 'color:#4dfa8f;': pTier == 'Diamond' ? 'color: #ff00d4;' : pTier == 'Master' ? 'color:#d91dff;' : pTier == 'GrandMaster' ? 'color: red;': 'color: #fffb00;'}"></span></h3>
             <h3>주포지션 : <a class="info-posi"><span th:text="${pMostPosition}"></span></a></h3>
-            <h3>주챔피언 : <a class="info-posi">가렌 </a></h3>
+            <h3>주챔피언 : <a class="info-posi"><span th:text="${pMostChampion}"></span> </a></h3>
 
             <h3><span th:text="${pcount}"></span> 전 <span th:text="${pgame_win}"></span> 승 <span th:text="${pgame_lose}"></span> 패 </h3>
             <h3>승률 : <span th:text="${pgame_winrate}" th:style="${pgame_winrate < 60 ? 'color:black;' : pgame_winrate < 70 ? 'color:blue;' : 'color:red;'}"></span> % </h3>
@@ -34,7 +34,13 @@
             <table class="basicUserRecord" border="1">
                 <tr th:each="pRecord : ${pRecord}">
                     <td th:text="${pRecord.pWinLose}" th:style="${pRecord.pWinLose == '승리' ? 'background-color:#4884f3;' : 'background-color:#ff7070;'}"></td>
-                    <td th:text="|${pRecord.pGameK}&nbsp; / ${pRecord.pGameD}&nbsp; / ${pRecord.pGameA}|" th:style="${pRecord.pWinLose == '승리' ? 'background-color:white; color: black' : 'background-color:white; color: black;'}"></td>
+                    <td th:style="${pRecord.pWinLose == '승리' ? 'background-color:white; color: black' : 'background-color:white; color: black;'}">
+                        <span th:text="${pRecord.pChampion}"></span>&nbsp;&nbsp;
+                        <span class="int_num" th:text="${pRecord.pGameK}"></span>&nbsp;/&nbsp;
+                        <span class="int_num" th:text="${pRecord.pGameD}"></span>&nbsp;/&nbsp;
+                        <span class="int_num" th:text="${pRecord.pGameA}"></span>
+
+                    </td>
                     <td th:text="${(pRecord.pGameK+pRecord.pGameA) / pRecord.pGameD}" th:style="${pRecord.pWinLose == '승리' ? 'background-color:#282828; color:white;' : 'background-color:#282828; color:white;'}" ></td>
                 </tr>
 

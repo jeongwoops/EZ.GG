@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>내전정보</title>
+    <title>마이페이지</title>
     <link rel="stylesheet" href="static/css/myPage.css"/>
     <link
             href="https://fonts.googleapis.com/css?family=Rock+Salt"
@@ -13,29 +13,36 @@
 <body>
    	  <div th:include="views/header"></div>
     <br>
-    <br><br><h1>내전정보</h1>
+    <br><br><h1>마이페이지</h1>
 
     <div class="privategameInfo">
         <div class="mypage-area">
             <div class="basicUserInfo">
                 <img src="static/icon/usreIcon.png"/><br>
                 <a id="loginid" th:text="${session.loginUser.nickName}"></a><br><br>
-                <img src="static/icon/tier-example.png" alt="userTier"/><br>
+
                 <h3>내전티어 : <span th:text="${pTier}" th:style="${pTier == 'Iron' ? 'color:black;' :pTier == 'Bronze' ? 'color:brown;' : pTier == 'Silver' ? 'color:silver;' : pTier == 'Gold' ? 'color:gold;' : pTier=='Platium' ? 'color: #78e7cb;': pTier == 'Emerald' ? 'color:#4dfa8f;': pTier == 'Diamond' ? 'color: #ff00d4;' : pTier == 'Master' ? 'color:#d91dff;' : pTier == 'GrandMaster' ? 'color: red;': 'color: #fffb00;'}"></span></h3>
                 <h3>주포지션 : <a class="info-posi"><span th:text="${pMostPosition}"></span></a></h3>
-                <h3>주챔피언 : <a class="info-posi">가렌 </a></h3>
+                <h3>주챔피언 : <a class="info-posi"><span th:text="${pMostChampion}"></span> </a></h3>
 	    	
                 <h3><span th:text="${pcount}"></span> 전 <span th:text="${pgame_win}"></span> 승 <span th:text="${pgame_lose}"></span> 패 </h3>
                 <h3>승률 : <span th:text="${pgame_winrate}" th:style="${pgame_winrate < 60 ? 'color:black;' : pgame_winrate < 70 ? 'color:blue;' : 'color:red;'}"></span> % </h3>
-                <h3>KDA : <span th:text="${pgame_kda}" th:style="${pgame_kda >= 4 ? 'color:red;' : pgame_kda >= 3 ? 'color:blue;' : pgame_kda >= 2 ? 'color:green;': 'color:grey;'}"></span>  </h3>
+                <h3>KDA : <span  class="int_number"id="int_numb" th:text="${pgame_kda}" th:style="${pgame_kda >= 4 ? 'color:red;' : pgame_kda >= 3 ? 'color:blue;' : pgame_kda >= 2 ? 'color:green;': 'color:grey;'}"></span>  </h3>
 
             </div>
             <div>
                 <table class="basicUserRecord" border="1">
                     <tr th:each="pRecord : ${pRecord}">
                         <td th:text="${pRecord.pWinLose}" th:style="${pRecord.pWinLose == '승리' ? 'background-color:#4884f3;' : 'background-color:#ff7070;'}"></td>
-                        <td th:text="|${pRecord.pGameK}&nbsp; / ${pRecord.pGameD}&nbsp; / ${pRecord.pGameA}|" th:style="${pRecord.pWinLose == '승리' ? 'background-color:white; color: black' : 'background-color:white; color: black;'}"></td>
-                        <td th:text="${(pRecord.pGameK+pRecord.pGameA) / pRecord.pGameD}" th:style="${pRecord.pWinLose == '승리' ? 'background-color:#282828; color:white;' : 'background-color:#282828; color:white;'}" ></td>
+<!--                        <td th:text="|${pRecord.pGameK}&nbsp; / ${pRecord.pGameD}&nbsp; / ${pRecord.pGameA}|" th:style="${pRecord.pWinLose == '승리' ? 'background-color:white; color: black' : 'background-color:white; color: black;'}"></td>-->
+                        <td th:style="${pRecord.pWinLose == '승리' ? 'background-color:white; color: black' : 'background-color:white; color: black;'}">
+                            <span th:text="${pRecord.pChampion}"></span>&nbsp;&nbsp;
+                            <span class="int_num" th:text="${pRecord.pGameK}"></span>&nbsp;/&nbsp;
+                            <span class="int_num" th:text="${pRecord.pGameD}"></span>&nbsp;/&nbsp;
+                            <span class="int_num" th:text="${pRecord.pGameA}"></span>
+
+                        </td>
+                        <td class="int_number" th:text="${(pRecord.pGameK+pRecord.pGameA) / pRecord.pGameD}" th:style="${pRecord.pWinLose == '승리' ? 'background-color:#282828; color:white;' : 'background-color:#282828; color:white;'}" ></td>
                     </tr>
 
                 </table>
@@ -45,13 +52,29 @@
     </div>
     <script>
         onload = () => {
-
+/*
             const kda_list = document.querySelectorAll("#basicUserRecord td:nth-child(5)");
             kda_list.forEach((kda)=>{
                 console.log(kda);
                 kda.innerText = Number(kda.innerText).toFixed(2)
             });
+*/
+            const numbers = document.querySelectorAll(".int_num");
 
+            numbers.forEach((num)=>{
+                num.innerText = parseInt(num.innerText);
+            });
+
+             const num = document.querySelectorAll(".int_number");
+             num.forEach((number)=>{
+                const value = number.innerText;
+
+                if (value == "-1.0") {
+                    number.innerText = "No Death";
+                } else {
+                    number.innerText = Number(number.innerText).toFixed(2)
+                }
+             });
 
         }
 

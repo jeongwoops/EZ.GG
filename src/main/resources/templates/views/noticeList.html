@@ -27,7 +27,7 @@
         <th:block th:if="${ list != null && !list.isEmpty() }">
             <tr th:each="n : ${list}">
                 <td th:text="${n.getNoticeNo()}"></td>
-                <td>
+                <td class="aa">
                     <a style="color:#665959; font-weight: 700; text-decoration:none;" th:href="@{${'noticeDetail?no=' + n.noticeNo}}" th:text="${n.getNoticeTitle()}"></a>
                 </td>
                 <td th:text="${n.getWriter()}"></td>

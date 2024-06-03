@@ -24,6 +24,7 @@
 			<result column="PGAME_D" property="pGameD" />
 			<result column="PGAME_A" property="pGameA" />
 			<result column="PGAME_WINLOSE" property="pGameWinLose" />
+			<result column="CHAMPION_NAME" property="pChampion" />
 
 		</resultMap>
 	<resultMap id="championResultSet" type="com.kh.ez.pgame.model.vo.Champion">
@@ -89,9 +90,9 @@
 		</select>
 
   		<select id="selectPgameInfoByUserNo" resultMap="pgameDtoResultSet">
-			SELECT PGAME_NO, NICKNAME, PGAME_WINLOSE , PGAME_K, PGAME_D,PGAME_A
-			FROM 	(   SELECT PGAME_NO,NICKNAME,PGAME_WINLOSE, PGAME_K, PGAME_D,PGAME_A
-						FROM PRIVATEGAME JOIN MEMBER USING (USER_NO)
+			SELECT PGAME_NO, NICKNAME, PGAME_WINLOSE , PGAME_K, PGAME_D,PGAME_A,CHAMPION_NAME
+			FROM 	(   SELECT PGAME_NO,NICKNAME,PGAME_WINLOSE, PGAME_K, PGAME_D,PGAME_A, CHAMPION_NAME
+						FROM PRIVATEGAME JOIN MEMBER USING (USER_NO) JOIN CHAMPION ON (PGAME_CHAMPION = CHAMPION_NO)
 						WHERE USER_NO = #{userNo}
 						ORDER BY PGAME_NO DESC
 					)
@@ -113,6 +114,17 @@
 			SELECT * FROM CHAMPION
 
 		</select>
-
+		<select id="getCountChampion" resultType="string">
+			select champion_name
+			from
+			( select *
+				from (
+					select pgame_champion, count(pgame_champion) cnt from privategame
+					where user_no = #{userNo}
+					group by pgame_champion
+					order by cnt desc )
+				where rownum &lt; 2 )
+			join champion on (pgame_champion = champion_no)
+		</select>
 
    </mapper>

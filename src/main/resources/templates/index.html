@@ -19,7 +19,7 @@
     <div class="content">
         <div id="search-area">
             <input type="text" id="search-bar" placeholder="소환사 검색" autocomplete="off"/>
-            <button type="submit" id="search-btn">검색</button>
+            <button type="submit" id="search-btn" onclick="searchBtn()">검색</button>
             <div class="autocomplete2"></div> 
         </div>
     </div>
@@ -98,7 +98,7 @@
                 for (let i=0; i<result.length; i++) {
                     value += "<tr>"
                                 + "<td>" + result[i].noticeNo + "</td>"
-                                + "<td>" + "<a style=\"color:#665959; font-weight: 700; text-decoration:none;\" href='noticeDetail?no=" + result[i].noticeNo + "'>" + result[i].noticeTitle + "</a>" + "</td>"
+                                + "<td class='aa'>" + "<a style=\"color:#665959; font-weight: 700; text-decoration:none;\" href='noticeDetail?no=" + result[i].noticeNo + "'>" + result[i].noticeTitle + "</a>" + "</td>"
                                 + "<td>" + result[i].writer + "</td>"
                                 + "<td>" + result[i].noticeCount + "</td>"
                                 + "<td>" + result[i].writeDate +"</td>"
@@ -126,7 +126,7 @@
                 for (let i=0; i<result.length; i++) {
                     value += "<tr>"
                                 + "<td>" + result[i].boardNo + "</td>"
-                                + "<td>" + "<a style=\"color:#665959; font-weight: 700; text-decoration:none;\" href='boardDetail?no=" + result[i].boardNo + "'>" + result[i].boardTitle + "</a>" + "</td>"
+                                + "<td class='aa'>" + "<a style=\"color:#665959; font-weight: 700; text-decoration:none;\" href='boardDetail?no=" + result[i].boardNo + "'>" + result[i].boardTitle + "</a>" + "</td>"
                                 + "<td>" + result[i].boardWriter + "</td>"
                                 + "<td>" + result[i].boardCount + "</td>"
                                 + "<td>" + result[i].boardWriteDate +"</td>"
@@ -138,6 +138,10 @@
                 console.log(error);
             }
         });
+    }
+    function searchBtn() {
+        document.querySelector("#search-btn");
+        alert('추후 업데이트 예정입니다!');
     }
 
 </script>

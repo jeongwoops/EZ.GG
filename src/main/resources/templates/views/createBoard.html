@@ -13,13 +13,19 @@
 
 <div id="create-notice">
     <form action="createBoard" method="post">
-        <input type="text" class="ip-content"placeholder="작성자" name="boardWriter" th:value="'작성자 : '+${session.loginUser.nickName}" readonly/><br>
-        <input type="text" class="ip-content"placeholder="작성일" name="boardWriteDate" required/><br>
+        <input type="text" class="ip-content" placeholder="작성자"  th:value="'작성자 : '+${session.loginUser.nickName}" readonly/><br>
+        <input type="date" id='currentDatetime2' class="ip-content" placeholder="작성일" name="boardWriteDate" readonly/><br>
         <input type="text" class="ip-content"placeholder="제목" name="boardTitle" required/><br>
         <textarea type="text" id="inp-content"placeholder="내용" name="boardContent" required></textarea><br>
         <button type="submit" id="noti-submit"><span>등록</span></button><br><br>
     </form>
 </div>
 <div th:include="views/footer"></div>
+
+<script>
+    onload = () => {
+        document.getElementById('currentDatetime2').value= new Date().toISOString().slice(0, 10);
+    }
+</script>
 </body>
 </html>
