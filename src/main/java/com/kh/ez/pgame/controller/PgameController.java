@@ -70,7 +70,9 @@ public class PgameController {
 		String result7 = pService.calcInfo7(loginUser.getUserNo()+"");
 		String result8 = pService.countPosition(loginUser.getUserNo()+"");
 		List<PgameDto> result9 = pService.calcInfo8(loginUser.getUserNo()+"");
-		log.info("{}",result9);
+		String result10 = pService.countChampion(loginUser.getUserNo()+"");
+
+		log.info("{}",result10);
 		try{
 			log.info("{}",result4);
 			if(result > 0) {
@@ -84,6 +86,8 @@ public class PgameController {
 				model.addAttribute("pTier", result7);
 				model.addAttribute("pMostPosition", result8);
 				model.addAttribute("pRecord", result9);
+				model.addAttribute("pMostChampion",result10);
+
 			} else {
 
 			}
@@ -104,7 +108,7 @@ public class PgameController {
 		String result7 = pService.calcInfo7(friend.getFriendNo()+"");
 		String result8 = pService.countPosition(friend.getFriendNo()+"");
 		List<PgameDto> result9 = pService.calcInfo8(friend.getFriendNo()+"");
-
+		String result10 = pService.countChampion(friend.getFriendNo()+"");
 
 			try {
 				log.info("{}", result4);
@@ -120,6 +124,7 @@ public class PgameController {
 					model.addAttribute("pTier", result7);
 					model.addAttribute("pMostPosition", result8);
 					model.addAttribute("pRecord", result9);
+					model.addAttribute("pMostChampion",result10);
 
 				} else {
 

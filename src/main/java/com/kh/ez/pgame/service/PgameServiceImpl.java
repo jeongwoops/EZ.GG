@@ -48,8 +48,13 @@ public class PgameServiceImpl implements PgameService{
 		int k = pDao.calcInfo5(userNo);
 		int d = pDao.calcInfo6(userNo);
 		int a = pDao.calcInfo7(userNo);
-		double kda =((double)(k+a) / d);
-		return Math.round(kda*100)/100.0;
+
+		if (d == 0)
+			return -1;
+		else {
+			double kda = ((double) (k + a) / d);
+			return Math.round(kda * 100) / 100.0;
+		}
 	}
 	@Override
 	public int calcInfo6(String userNo ) {
@@ -60,7 +65,8 @@ public class PgameServiceImpl implements PgameService{
 	public String calcInfo7(String userNo) {
 		int win = pDao.calcInfo2(userNo);
 		int lose = pDao.calcInfo3(userNo);
-		int pScore = (win * 25) - (lose * 25);
+		int begin = 300;
+		int pScore = begin+ ((win * 25) - (lose * 25));
 		String pTier = null;
 		if (pScore < 100) {
 			pTier = "Iron";
@@ -156,4 +162,9 @@ public class PgameServiceImpl implements PgameService{
 		return pDao.getChampionList();
 
 	}
+	public String countChampion(String userNo){
+
+		return pDao.countChampion(userNo);
+	}
+
 }

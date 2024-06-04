@@ -30,4 +30,9 @@ public interface PgameService {
 	int getSumWinrate(Member m);
 
 	List<Champion> getChampionList();
+
+    String countChampion(String userNo);
+
+
+
 }

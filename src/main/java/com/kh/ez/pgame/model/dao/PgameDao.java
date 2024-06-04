@@ -81,4 +81,9 @@ public class PgameDao {
 	public List<Champion> getChampionList(){
 		return sqlSession.selectList("pgameMapper.getChampionList");
 	}
+
+	public String countChampion(String userNo) {
+		return sqlSession.selectOne("pgameMapper.getCountChampion", userNo);
+	}
+
 }

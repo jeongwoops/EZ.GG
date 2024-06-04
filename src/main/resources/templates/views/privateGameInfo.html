@@ -27,7 +27,7 @@
 	    	
                 <h3><span th:text="${pcount}"></span> 전 <span th:text="${pgame_win}"></span> 승 <span th:text="${pgame_lose}"></span> 패 </h3>
                 <h3>승률 : <span th:text="${pgame_winrate}" th:style="${pgame_winrate < 60 ? 'color:black;' : pgame_winrate < 70 ? 'color:blue;' : 'color:red;'}"></span> % </h3>
-                <h3>KDA : <span  class="int_number"id="int_numb" th:text="${pgame_kda}" th:style="${pgame_kda >= 4 ? 'color:red;' : pgame_kda >= 3 ? 'color:blue;' : pgame_kda >= 2 ? 'color:green;': 'color:grey;'}"></span>  </h3>
+                <h3>KDA : <span  class="int_number" id="int_numb" th:text="${pgame_kda}" th:style="${pgame_kda >= 4 ? 'color:red;' : pgame_kda >= 3 ? 'color:blue;' : pgame_kda >= 2 ? 'color:green;': 'color:grey;'}"></span>  </h3>
 
             </div>
             <div>

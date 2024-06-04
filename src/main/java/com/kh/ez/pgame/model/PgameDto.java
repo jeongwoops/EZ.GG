@@ -18,7 +18,7 @@ public class PgameDto {
     private double pGameK;
     private double pGameD;
     private double pGameA;
-
+    private String pChampion;
 
     
     public void setpGameWinLose(int pGameWinLose) {
